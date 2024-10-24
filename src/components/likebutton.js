@@ -7,9 +7,9 @@ export default function LikeButton(){
         setLikes(likes + 1);
     };
     return (
-        <div>
-          <button onClick={handleLike}>Like</button>
-          <p>{likes} {"Likes"}</p>
+        <div className="flex gap-5 justify-center">
+          <button className = "p-1 bg-blue-700 border-2 rounded-lg border-white" onClick={handleLike}>Like</button>
+          <p className="py-1">{likes} {"Likes"}</p>
         </div>
     );   
 }
