@@ -3,7 +3,7 @@ export default function Header() {
     return (
         <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-200 bg-opacity-25">
             <div className="flex-grow text-center">
-                <h1 className="text-xl md:text-2xl lg:text-4xl">Bienvenido</h1>
+                <h1 className="text-3xl md:text-4xl">Bienvenido</h1>
             </div>
             <div className="flex-none mt-2 md:mt-0">
                 <Link href="/login">
