@@ -7,18 +7,14 @@ export default function List() {
         <Link href="/tienda" className="text-2xl md:text-4xl">Tienda</Link>
       </li>
       <li>
-        <Link href="/es" className="text-2xl md:text-4xl">Locales</Link>
+        <Link href="/es" className="text-2xl md:text-3xl">Locales</Link>
       </li>
       <li>
-        <Link href="/de" className="text-2xl md:text-4xl">Contacto</Link>
+        <Link href="/de" className="text-2xl md:text-3xl">Contacto</Link>
       </li>
       <li>
-        <Link href="/fr" className="text-2xl md:text-4xl">Sans</Link>
-      </li>
-      <li>
-        <Link href="/it" className="text-2xl md:text-4xl">Idioma</Link>
+        <Link href="/fr" className="text-2xl md:text-3xl">Sans</Link>
       </li>
     </ul>
   );
 }
-
