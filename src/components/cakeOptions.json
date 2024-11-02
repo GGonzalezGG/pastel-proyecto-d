@@ -1,0 +1,96 @@
+{
+    "shape": {
+      "name": "Cake Shape",
+      "type": "single",
+      "options": [
+        "Circle",
+        "Square"
+      ]
+    },
+    "size": {
+      "name": "Cake Size",
+      "type": "single",
+      "options": [
+        {
+          "name": "Small (8-10 people)",
+          "servings": "8-10",
+          "dimensions": {
+            "circle": "6 inch diameter",
+            "square": "6×6 inch"
+          }
+        },
+        {
+          "name": "Medium (12-15 people)",
+          "servings": "12-15",
+          "dimensions": {
+            "circle": "8 inch diameter",
+            "square": "8×8 inch"
+          }
+        },
+        {
+          "name": "Large (18-20 people)",
+          "servings": "18-20",
+          "dimensions": {
+            "circle": "10 inch diameter",
+            "square": "10×10 inch"
+          }
+        },
+        {
+          "name": "Extra Large (25-30 people)",
+          "servings": "25-30",
+          "dimensions": {
+            "circle": "12 inch diameter",
+            "square": "12×12 inch"
+          }
+        }
+      ]
+    },
+    "toppings": {
+      "name": "Toppings",
+      "type": "multiple",
+      "categories": {
+        "frostings": {
+          "name": "Frostings",
+          "options": [
+            "Vanilla Buttercream",
+            "Chocolate Ganache",
+            "Cream Cheese Frosting",
+            "Whipped Cream"
+          ]
+        },
+        "decorations": {
+          "name": "Decorations",
+          "options": [
+            "Fresh Fruits",
+            "Chocolate Shavings",
+            "Sprinkles",
+            "Edible Flowers"
+          ]
+        }
+      }
+    },
+    "fillings": {
+      "name": "Fillings",
+      "type": "multiple",
+      "categories": {
+        "creams": {
+          "name": "Creams",
+          "options": [
+            "Vanilla Custard",
+            "Chocolate Mousse",
+            "Bavarian Cream",
+            "Tiramisu Cream"
+          ]
+        },
+        "fruits": {
+          "name": "Fruit Fillings",
+          "options": [
+            "Strawberry Jam",
+            "Raspberry Preserves",
+            "Lemon Curd",
+            "Apple Filling"
+          ]
+        }
+      }
+    }
+  }
