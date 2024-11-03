@@ -15,11 +15,14 @@ export default function Custom() {
   
   return (
     
-      <div className="bg-gray-100">
-        <h1>Bienvenido {user?.username}</h1>
-          <div className="md:container mx-auto py-8 md">
-        <CakeCustomizer />
-      </div>
+      <div style={{ 
+        backgroundImage: "url('/xd.jpg')", backgroundSize: 'cover', backgroundPosition: 'center',backgroundRepeat: 'no-repeat'}}>
+        <div className="bg-gray-900 bg-opacity-90 p-3">
+          <h1 className="text-center text-4xl text-white">Welcome {user?.username}</h1>
+        </div>
+        <div className="md:container mx-auto md">
+          <CakeCustomizer />
+        </div>
       </div>
     
   );

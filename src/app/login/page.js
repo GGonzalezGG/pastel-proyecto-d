@@ -44,8 +44,16 @@ export default function Login() {
     }
 
     return(
-        <div className="bg-green-100 text-4xl flex flex-col gap-2 align-center justify-center h-screen items-center">
-            Sign In
+        <div className="text-4xl text-white flex flex-col gap-2 align-center justify-center h-screen items-center"
+        style={{ 
+            backgroundImage: "url('/cake_login.jpg')", 
+            backgroundSize: 'cover',   // Ajusta la imagen para cubrir todo el fondo
+            backgroundPosition: 'center', // Centra la imagen
+            backgroundRepeat: 'no-repeat'// Evita que la imagen se repita
+        }}>
+            <div className="bg-gray-800 bg-opacity-75 rounded-xl p-2">
+                Sign In
+            </div>
             <div className="text-xl w-full max-w-xs">
                 <form onSubmit={handleLogin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     {error && (
@@ -79,15 +87,15 @@ export default function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-center">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             Sign In
                         </button>
                     </div>
                 </form>
             </div>     
-            <Link href="/">
-                Inicio
+            <Link href="/" className="bg-gray-800 bg-opacity-75 rounded-xl p-2">
+                Home
             </Link>
         </div>
     );

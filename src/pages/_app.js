@@ -30,7 +30,8 @@ const translations = {
         loginError: "Ocurrió un error en el inicio de sesión",
         invalidCredentials: "Credenciales inválidas",
         signInButton: "Iniciar Sesión",
-        registerButton: "Registrar"
+        registerButton: "Registrar",
+        locations: "Localizaciones"
     },
     en: { 
         welcome: "Welcome", 
@@ -55,7 +56,8 @@ const translations = {
         loginError: "An error occurred during login",
         invalidCredentials: "Invalid credentials",
         signInButton: "Sign In",
-        registerButton: "Register"
+        registerButton: "Register",
+        locations: "Locations"
     },
     fr: { 
         welcome: "Bienvenue", 
@@ -80,7 +82,8 @@ const translations = {
         loginError: "Une erreur s'est produite lors de la connexion",
         invalidCredentials: "Identifiants invalides",
         signInButton: "Se connecter",
-        registerButton: "S'inscrire"
+        registerButton: "S'inscrire",
+        locations: "Emplacements"
     },
     de: { 
         welcome: "Willkommen", 
@@ -105,7 +108,8 @@ const translations = {
         loginError: "Bei der Anmeldung ist ein Fehler aufgetreten",
         invalidCredentials: "Ungültige Anmeldeinformationen",
         signInButton: "Anmelden",
-        registerButton: "Registrieren"
+        registerButton: "Registrieren",
+        locations: "Standorte"
     },
 };
 

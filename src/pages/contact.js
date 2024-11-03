@@ -1,5 +1,5 @@
 import Link from 'next/link';
-export default function Tienda() {
+export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-cover bg-center" style={{ backgroundImage: "url('/cake_tienda.jpg')" }}>
       <title>Tienda</title>

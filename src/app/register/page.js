@@ -36,51 +36,61 @@ export default function Register() {
     };
 
     return(
-        <div className="bg-blue-100 text-4xl flex flex-col gap-2 align-center justify-center h-screen items-center">
-            Register Page
-            <div className="text-xl w-full max-w-xs">
-                <form onSubmit={handleLogin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    {error && (
-                        <div className="mb-4 text-red-500 text-sm">
-                            {error}
+        <div 
+        style={{ 
+            backgroundImage: "url('/cake_register.jpg')", 
+            backgroundSize: 'cover',
+            backgroundPosition: 'center', 
+            backgroundRepeat: 'no-repeat'
+        }}>
+            <div className="text-4xl text-white flex flex-col gap-2 align-center justify-center h-screen items-center">
+            <div className="bg-gray-800 bg-opacity-75 rounded-xl p-2">
+                Register
+            </div>
+                <div className="text-xl w-full max-w-xs">
+                    <form onSubmit={handleLogin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        {error && (
+                            <div className="mb-4 text-red-500 text-sm">
+                                {error}
+                            </div>
+                        )}
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                Username
+                            </label>
+                            <input 
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                id="username" 
+                                type="text" 
+                                placeholder="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
                         </div>
-                    )}
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
-                            Username
-                        </label>
-                        <input 
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="username" 
-                            type="text" 
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                    </div>
-                    <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
-                            Password
-                        </label>
-                        <input 
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="password" 
-                            type="password" 
-                            placeholder="******************" 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                            Register
-                        </button>
-                    </div>
-                </form>
-            </div> 
-            <Link href="/">
-                Inicio
-            </Link>
+                        <div className="mb-6">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                Password
+                            </label>
+                            <input 
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                id="password" 
+                                type="password" 
+                                placeholder="******************" 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className="flex items-center justify-between">
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                Register
+                            </button>
+                        </div>
+                    </form>
+                </div> 
+                <Link href="/" className="bg-gray-800 bg-opacity-75 rounded-xl p-2">
+                    Inicio
+                </Link>
+            </div>
         </div>
     );
 }

@@ -5,7 +5,7 @@ import { LanguageContext } from '../pages/_app';
 export default function Header() {
     const { t } = useContext(LanguageContext);
     return (
-        <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-200 bg-opacity-25">
+        <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-900 bg-opacity-90">
             <div className="flex-grow text-center">
                 <h1 className="text-3xl md:text-4xl">{t("welcome")}</h1>
             </div>
