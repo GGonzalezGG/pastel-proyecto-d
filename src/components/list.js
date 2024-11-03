@@ -13,7 +13,7 @@ export default function List() {
         <Link href="/de" className="text-2xl md:text-3xl">Contacto</Link>
       </li>
       <li>
-        <Link href="/fr" className="text-2xl md:text-3xl">Sans</Link>
+        <Link href="/perso" className="text-2xl md:text-3xl">Personaliza tu pedido</Link>
       </li>
     </ul>
   );

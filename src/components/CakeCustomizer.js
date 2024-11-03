@@ -1,4 +1,6 @@
+"use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Check, ChevronDown, X } from 'lucide-react';
 import cakeOptions from './cakeOptions.json';
 
@@ -204,13 +206,15 @@ const CakeCustomizer = () => {
               )}
               
               <div className="md:flex">
-              <button 
-                className="w-full mt-6 bg-gray-100 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 transition-colors"
-              >
-                Back to shop
-              </button>
+                <Link href="/" className="w-full">
+                  <button 
+                  className="w-full font-medium mt-6 bg-gray-100 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors">
+                  Back to shop
+                </button>
+                </Link>
+              
                 <button 
-                    className="w-full mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
+                    className="w-full font-medium mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
                     disabled={!selections.size || !selections.shape}
                 >
                     Add to cart
