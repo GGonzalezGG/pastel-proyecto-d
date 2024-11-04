@@ -9,25 +9,38 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         // Check localStorage on initial load
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
+        const storedAuth = localStorage.getItem('auth');
+        if (storedAuth) {
+            const { user, token } = JSON.parse(storedAuth);
+            setUser({ ...user, token });
         }
         setLoading(false);
     }, []);
 
     const login = (userData) => {
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData));
+        const authData = {
+            user: { username: userData.username },
+            token: userData.token
+        };
+        setUser(authData);
+        localStorage.setItem('auth', JSON.stringify(authData));
     };
 
     const logout = () => {
         setUser(null);
-        localStorage.removeItem('user');
+        localStorage.removeItem('auth');
+    };
+
+    // Function to get the auth token
+    const getToken = () => {
+        if (user && user.token) {
+            return user.token;
+        }
+        return null;
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, loading }}>
+        <AuthContext.Provider value={{ user, login, logout, getToken, loading }}>
             {!loading && children}
         </AuthContext.Provider>
     );

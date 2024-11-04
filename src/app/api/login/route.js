@@ -1,44 +1,54 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import bcrypt from 'bcryptjs';
+import dbConnect from '@/app/lib/db';
+import User from '@/app/models/users';
+import { NextResponse } from 'next/server';
+import jwt from 'jsonwebtoken';
 
 export async function POST(req) {
     try {
+        await dbConnect();
+        
         const { username, password } = await req.json();
 
-        const filePath = path.join(process.cwd(), 'src/data/users.json');
-        const fileData = await fs.readFile(filePath, 'utf-8');
-        const users = JSON.parse(fileData);
-
-        const user = users.find((u) => u.username === username);
-
-        if (user && (await bcrypt.compare(password, user.password))) {
-            // Don't send the password back
-            const { password: _, ...userData } = user;
-            
-            return new Response(JSON.stringify({
-                message: "Login successful",
-                username: userData.username
-            }), {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-        } else {
-            return new Response(JSON.stringify({ message: "Invalid credentials" }), {
-                status: 401,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
+        // Find user
+        const user = await User.findOne({ username });
+        
+        if (!user) {
+            return NextResponse.json(
+                { message: 'Invalid user' },
+                { status: 401 }
+            );
         }
-    } catch (error) {
-        return new Response(JSON.stringify({ message: "Server error" }), {
-            status: 500,
-            headers: {
-                'Content-Type': 'application/json',
+
+        // Check password
+        const isMatch = await user.matchPassword(password);
+        
+        if (!isMatch) {
+            return NextResponse.json(
+                { message: 'Invalid credentials' },
+                { status: 401 }
+            );
+        }
+
+        // Create token
+        const token = jwt.sign(
+            { id: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '30d' }
+        );
+
+        return NextResponse.json(
+            {
+                message: 'Login successful',
+                username: user.username,
+                token
             },
-        });
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error('Login error:', error);
+        return NextResponse.json(
+            { message: 'Server error during login' },
+            { status: 500 }
+        );
     }
 }

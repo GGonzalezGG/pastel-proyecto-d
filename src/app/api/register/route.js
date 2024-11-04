@@ -1,49 +1,50 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import bcrypt from 'bcryptjs';
+import dbConnect from '@/app/lib/db';
+import User from '@/app/models/users';
+import { NextResponse } from 'next/server';
+import jwt from 'jsonwebtoken';
 
 export async function POST(req) {
     try {
+        await dbConnect();
+        
         const { username, password } = await req.json();
 
-        const filePath = path.join(process.cwd(), 'src/data/users.json');
-        const fileData = await fs.readFile(filePath, 'utf-8');
-        const users = JSON.parse(fileData);
-
-        const existingUser = users.find((u) => u.username === username);
-
-        if (existingUser) {
-            return new Response(JSON.stringify({ message: "User already exists" }), {
-                status: 400,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
+        // Check if user exists
+        const userExists = await User.findOne({ username });
+        
+        if (userExists) {
+            return NextResponse.json(
+                { message: 'User already exists' },
+                { status: 400 }
+            );
         }
 
-        const hashPass = await bcrypt.hash(password, 10);
-
-        const newUser = {
+        // Create user
+        const user = await User.create({
             username,
-            password: hashPass
-        };
-
-        users.push(newUser);
-
-        await fs.writeFile(filePath, JSON.stringify(users, null, 2));
-
-        return new Response(JSON.stringify({ message: "User created successfully" }), {
-            status: 200,
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            password,
         });
+
+        // Create token
+        const token = jwt.sign(
+            { id: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '30d' }
+        );
+
+        return NextResponse.json(
+            {
+                message: 'User created successfully',
+                username: user.username,
+                token
+            },
+            { status: 201 }
+        );
     } catch (error) {
-        return new Response(JSON.stringify({ message: "Server error" }), {
-            status: 500,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+        console.error('Registration error:', error);
+        return NextResponse.json(
+            { message: 'Server error during registration' },
+            { status: 500 }
+        );
     }
 }
