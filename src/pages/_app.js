@@ -32,7 +32,13 @@ const translations = {
         invalidCredentials: "Credenciales inválidas",
         signInButton: "Iniciar Sesión",
         registerButton: "Registrar",
-        locations: "Localizaciones"
+        locations: "Localizaciones",
+        sendMessage: "Enviar Mensaje",
+        contactInfo: "Información de Contacto",
+        phone: "Teléfono",
+        email: "Correo Electrónico",
+        address: "Dirección",
+        name: "Nombre"
     },
     en: { 
         welcome: "Welcome", 
@@ -58,7 +64,13 @@ const translations = {
         invalidCredentials: "Invalid credentials",
         signInButton: "Sign In",
         registerButton: "Register",
-        locations: "Locations"
+        locations: "Locations",
+        sendMessage: "Send Message",
+        contactInfo: "Contact Information",
+        phone: "Phone",
+        email: "Email Address",
+        address: "Address",
+        name: "Name"
     },
     fr: { 
         welcome: "Bienvenue", 
@@ -84,7 +96,13 @@ const translations = {
         invalidCredentials: "Identifiants invalides",
         signInButton: "Se connecter",
         registerButton: "S'inscrire",
-        locations: "Emplacements"
+        locations: "Emplacements",
+        sendMessage: "Envoyer un message",
+        contactInfo: "Coordonnées",
+        phone: "Téléphone",
+        email: "Adresse email",
+        address: "Adresse",
+        name: "Nom"
     },
     de: { 
         welcome: "Willkommen", 
@@ -110,7 +128,12 @@ const translations = {
         invalidCredentials: "Ungültige Anmeldeinformationen",
         signInButton: "Anmelden",
         registerButton: "Registrieren",
-        locations: "Standorte"
+        locations: "Standorte",
+        sendMessage: "Nachricht senden",
+        contactInfo: "Kontaktinformationen",
+        phone: "Telefon",
+        email: "E-Mail-Adresse",
+        address: "Name"
     },
 };
 

@@ -14,7 +14,7 @@ export default function Custom() {
     };
   
   return (
-    
+    <ProtectedRoute>
       <div style={{ 
         backgroundImage: "url('/xd.jpg')", backgroundSize: 'cover', backgroundPosition: 'center',backgroundRepeat: 'no-repeat'}}>
         <div className="bg-gray-900 bg-opacity-90 p-3 flex items-center justify-between flex-wrap md:flex-nowrap">
@@ -26,6 +26,8 @@ export default function Custom() {
           <CakeCustomizer />
         </div>
       </div>
+    </ProtectedRoute>
+      
     
   );
 }

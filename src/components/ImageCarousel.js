@@ -4,7 +4,7 @@ export default function ImageCarousel() {
     const images = [
         '/3_Leches.png',
         '/Mil_Hojas.jpg',
-        '/fiesta.JPG'
+        '/Selva_Negra.jpg'
     ];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [prevImageIndex, setPrevImageIndex] = useState(null);
