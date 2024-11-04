@@ -1,4 +1,5 @@
 {
+
     "shape": {
       "name": "Cake Shape",
       "type": "single",
@@ -92,5 +93,103 @@
           ]
         }
       }
+    },
+
+  "es": {
+    "shape": {
+      "name": "Forma de la torta",
+      "type": "single",
+      "options": [
+        "Circular",
+        "Cuadrada"
+      ]
+    },
+    "size": {
+      "name": "Tamaño de la torta",
+      "type": "single",
+      "options": [
+        {
+          "name": "Pequeña (8-10 personas)",
+          "servings": "8-10",
+          "dimensions": {
+            "circle": "6 pulgadas de diametro",
+            "square": "6×6 pulgadas"
+          }
+        },
+        {
+          "name": "Mediana (12-15 personas)",
+          "servings": "12-15",
+          "dimensions": {
+            "circle": "8 pulgadas de diametro",
+            "square": "8×8 pulgadas"
+          }
+        },
+        {
+          "name": "Grande (18-20 personas)",
+          "servings": "18-20",
+          "dimensions": {
+            "circle": "10 pulgadas de diametror",
+            "square": "10×10 pulgadas"
+          }
+        },
+        {
+          "name": "Extra grande (25-30 personas)",
+          "servings": "25-30",
+          "dimensions": {
+            "circle": "12 pulgadas de diametro",
+            "square": "12×12 pulgadas"
+          }
+        }
+      ]
+    },
+    "toppings": {
+      "name": "Toppings",
+      "type": "multiple",
+      "categories": {
+        "frostings": {
+          "name": "Frostings",
+          "options": [
+            "Vainilla",
+            "Chocolate",
+            "Frosting Queso Crema",
+            "Crema batida"
+          ]
+        },
+        "decorations": {
+          "name": "Decorations",
+          "options": [
+            "Fruitas frescas",
+            "Pedazos de chocolate",
+            "Chispas",
+            "Flores comestibles"
+          ]
+        }
+      }
+    },
+    "fillings": {
+      "name": "Rellenos",
+      "type": "multiple",
+      "categories": {
+        "creams": {
+          "name": "Creams",
+          "options": [
+            "Vainilla",
+            "mousse de chocolate",
+            "Crema bávara",
+            "Crema de tiramisú"
+          ]
+        },
+        "fruits": {
+          "name": "Fruit Fillings",
+          "options": [
+            "Jalea de fruitillas",
+            "Frambuesas",
+            "Crema de limón",
+            "Relleno de manzana"
+          ]
+        }
+      }
     }
+    
   }
+}

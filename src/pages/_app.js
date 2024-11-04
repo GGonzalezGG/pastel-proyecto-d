@@ -1,6 +1,7 @@
 // _app.js
 import "@/styles/globals.css";
 import { useEffect, useState, createContext } from "react";
+import { AuthProvider } from '../app/context/AuthContext';
 
 // Crear el contexto de idioma
 export const LanguageContext = createContext();
@@ -135,9 +136,11 @@ export default function App({ Component, pageProps }) {
     if (!isLanguageLoaded) return null;
 
     return (
-        <LanguageContext.Provider value={{ language, changeLanguage, t }}>
-            <Component {...pageProps} />
-        </LanguageContext.Provider>
+        <AuthProvider>
+            <LanguageContext.Provider value={{ language, changeLanguage, t }}>
+                <Component {...pageProps} />
+            </LanguageContext.Provider>
+        </AuthProvider>
     );
 }
 
