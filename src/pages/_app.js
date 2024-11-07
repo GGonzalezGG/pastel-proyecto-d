@@ -38,7 +38,8 @@ const translations = {
         phone: "Teléfono",
         email: "Correo Electrónico",
         address: "Dirección",
-        name: "Nombre"
+        name: "Nombre",
+        footer: "Tortas del Guille. Todos los derechos reservados."
     },
     en: { 
         welcome: "Welcome", 
@@ -70,7 +71,8 @@ const translations = {
         phone: "Phone",
         email: "Email Address",
         address: "Address",
-        name: "Name"
+        name: "Name",
+        footer: "Guille Cakes. All rights reserved."
     },
     fr: { 
         welcome: "Bienvenue", 
@@ -102,7 +104,8 @@ const translations = {
         phone: "Téléphone",
         email: "Adresse email",
         address: "Adresse",
-        name: "Nom"
+        name: "Nom",
+        footer: "Gâteaux Guille. Tous droits réservés."
     },
     de: { 
         welcome: "Willkommen", 
@@ -133,7 +136,8 @@ const translations = {
         contactInfo: "Kontaktinformationen",
         phone: "Telefon",
         email: "E-Mail-Adresse",
-        address: "Name"
+        address: "Name",
+        footer: "Guille-Kuchen. Alle Rechte vorbehalten."
     },
 };
 

@@ -5,8 +5,11 @@ import Header from "@/components/header";
 import Head from 'next/head';
 import LanguageSelector from "@/components/language";
 import ImageCarousel from '@/components/ImageCarousel';
+import { useContext } from 'react';
+import { LanguageContext } from '../pages/_app'; 
 
 export default function Home() {
+    const { t } = useContext(LanguageContext);
     return (
         <div className="min-h-screen flex flex-col bg-cover bg-center" style={{ backgroundImage: "url('/cakes.png')" }}>
             <Head>
@@ -27,7 +30,7 @@ export default function Home() {
             <footer className="text-white py-4 bg-gray-900 bg-opacity-90">
                  <div className="container mx-auto text-center">
                     <p className="text-sm">
-                         &copy; {new Date().getFullYear()} Tortas del Guille. Todos los derechos reservados.
+                         &copy; {new Date().getFullYear()} {t("footer")}
                     </p>
                 </div>
             </footer>
