@@ -1,6 +1,6 @@
 // components/LanguageSelector.js
 import { useContext } from "react";
-import { LanguageContext } from "../pages/_app";
+import { LanguageContext } from "@/context/languageContext";
 
 export default function LanguageSelector() {
     const { language, changeLanguage, t } = useContext(LanguageContext);

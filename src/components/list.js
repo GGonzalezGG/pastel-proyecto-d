@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useContext } from 'react';
-import { LanguageContext } from '../pages/_app';
+import { LanguageContext } from '@/context/languageContext';
 
 export default function List() {
     const { t } = useContext(LanguageContext);

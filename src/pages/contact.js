@@ -2,8 +2,9 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { LanguageContext } from '../pages/_app';
+import { LanguageContext } from '@/context/languageContext'; 
 import Link from 'next/link';
+import Header from "@/components/header";
 
 export default function Contact() {
     const { t } = useContext(LanguageContext);
@@ -43,6 +44,7 @@ export default function Contact() {
         <div className="flex flex-col items-center min-h-screen justify-center" style={{ backgroundImage: "url('/cake_tienda.jpg')",backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'}}>
+            <Header></Header>
             <Head>
                 <title>Contacto - Tortas del Guille</title>
             </Head>
