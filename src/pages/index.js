@@ -6,7 +6,7 @@ import Head from 'next/head';
 import LanguageSelector from "@/components/language";
 import ImageCarousel from '@/components/ImageCarousel';
 import { useContext } from 'react';
-import { LanguageContext } from '../pages/_app'; 
+import { LanguageContext } from "@/context/languageContext"; 
 
 export default function Home() {
     const { t } = useContext(LanguageContext);
