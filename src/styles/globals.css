@@ -46,11 +46,62 @@ body {
       opacity: 1;
   }
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.container_flavor {
+  text-align: center;
+  padding: 2rem;
+}
 
+.flavor {
+  display: inline-block;
+  color: #ffffff;
+  animation: fadeIn 1s ease-in-out;
+}
+.flavors-highlight {
+  display: inline-block;
+  color: #eaed45;
+}
 .animate-slideIn {
   animation: slideIn 3s ease-in-out forwards; 
 }
 
 .animate-slideOut {
   animation: slideOut 3s ease-in-out forwards; 
+}
+@keyframes fadeIn_Flavor {
+  0% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut_Flavor {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
 }

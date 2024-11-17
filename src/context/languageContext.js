@@ -40,7 +40,18 @@ const translations = {
       email: "Correo Electrónico",
       address: "Dirección",
       name: "Nombre",
-      footer: "Tortas del Guille. Todos los derechos reservados."
+      footer: "Tortas del Guille. Todos los derechos reservados.",
+      featuredFlavors: "Nuestros sabores destacados",
+      lemonRaspberry: "Frambuesa Limón",
+      flavors: [
+        "Terciopelo Rojo",
+        "Trufa de Chocolate",
+        "Vainilla",
+        "Frambuesa con Limón",
+        "Caramelo Salado",
+      ],
+      chatWithUs: "Habla Con Nosotros",
+      helpChat: "Hola! Cómo te podemos ayudar?"
   },
   en: { 
       welcome: "Welcome", 
@@ -73,7 +84,18 @@ const translations = {
       email: "Email Address",
       address: "Address",
       name: "Name",
-      footer: "Guille Cakes. All rights reserved."
+      footer: "Guille Cakes. All rights reserved.",
+      featuredFlavors: "Our featured flavors",
+      lemonRaspberry: "Lemon Raspberry",
+      flavors: [
+        "Red Velvet",
+        "Chocolate Truffle",
+        "Vanilla Bean",
+        "Lemon Raspberry",
+        "Salted Caramel",
+      ],
+      chatWithUs: "Chat with us",
+      helpChat: "Hi! How can we help you?"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -106,7 +128,18 @@ const translations = {
       email: "Adresse email",
       address: "Adresse",
       name: "Nom",
-      footer: "Gâteaux Guille. Tous droits réservés."
+      footer: "Gâteaux Guille. Tous droits réservés.",
+      featuredFlavors: "Nos saveurs vedettes",
+      lemonRaspberry: "Citron Framboise",
+      flavors: [
+        "Velours Rouge",
+        "Truffe au Chocolat",
+        "Gousse de Vanille",
+        "Framboise Citron",
+        "Caramel Salé",
+      ],
+      chatWithUs: "Discutez avec nous",
+      helpChat: "Bonjour! Comment pouvons-nous vous aider ?"
   },
   de: { 
       welcome: "Willkommen", 
@@ -138,7 +171,18 @@ const translations = {
       phone: "Telefon",
       email: "E-Mail-Adresse",
       address: "Name",
-      footer: "Guille-Kuchen. Alle Rechte vorbehalten."
+      footer: "Guille-Kuchen. Alle Rechte vorbehalten.",
+      featuredFlavors: "Unsere vorgestellten Geschmacksrichtungen",
+      lemonRaspberry: "Zitronen-Himbeere",
+      flavors: [
+        "Roter Samt",
+        "Schokoladen-Trüffel",
+        "Vanilleschote",
+        "Zitrone-Himbeere",
+        "Gesalzenes Karamell",
+      ],
+      chatWithUs: "Chatten Sie mit uns",
+      helpChat: "Hallo! Wie können wir Ihnen helfen?"
   },
 };
 

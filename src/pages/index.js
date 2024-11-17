@@ -1,5 +1,4 @@
 // pages/index.js
-import LikeButton from "@/components/likebutton"; 
 import List from "@/components/list";
 import Header from "@/components/header";
 import Head from 'next/head';
@@ -7,6 +6,8 @@ import LanguageSelector from "@/components/language";
 import ImageCarousel from '@/components/ImageCarousel';
 import { useContext } from 'react';
 import { LanguageContext } from "@/context/languageContext"; 
+import FeaturedFlavors from '../components/FeaturedFlavors';
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
     const { t } = useContext(LanguageContext);
@@ -25,10 +26,12 @@ export default function Home() {
                         <LanguageSelector />
                     </div>
                 </div>
+                <FeaturedFlavors />
                 <ImageCarousel/>
+                <ChatWidget />
             </div>
             <footer className="text-white py-4 bg-gray-900 bg-opacity-90">
-                 <div className="container mx-auto text-center">
+                 <div className="mx-auto text-center">
                     <p className="text-sm">
                          &copy; {new Date().getFullYear()} {t("footer")}
                     </p>

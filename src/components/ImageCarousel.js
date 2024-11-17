@@ -18,7 +18,7 @@ export default function ImageCarousel() {
     }, [currentImageIndex, images.length]);
 
     return (
-        <div className="flex justify-center items-center w-full h-full py-20">
+        <div className="flex justify-center items-center w-full h-full py-10">
             <div className="relative w-full max-w-screen-lg h-64 sm:h-80 md:h-96 lg:h-[32rem] overflow-hidden rounded-lg shadow-lg">
                 {images.map((image, index) => (
                     <img
