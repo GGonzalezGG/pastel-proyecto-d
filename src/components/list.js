@@ -14,6 +14,9 @@ export default function List() {
                 <Link href="/contact" className="text-2xl md:text-3xl">{t("contact")}</Link>
             </li>
             <li>
+                <Link href="/tortas" className="text-2xl md:text-3xl">{t("catalog")}</Link>
+            </li>
+            <li>
                 <Link href="/dashboard" className="text-2xl md:text-3xl">{t("customize")}</Link>
             </li>
         </ul>
