@@ -3,25 +3,26 @@ import React, { useState, useContext } from "react";
 import Image from "next/image";
 import { LanguageContext } from '@/context/languageContext';
 import Link from "next/link";
+import { addToCart } from "@/components/cartUtils";
 
 const predefinedCakes = [
   {
     id: 1,
-    name: "Chocolate Delight",
+    name: "chocolateDelight", // Clave de traducción
     image: "/cake_register.jpg",
-    ingredients: ["Chocolate sponge", "Ganache", "Chocolate chips"],
+    ingredients: ["Chocolatesponge", "Ganache", "Chocolatechip"], // Claves de traducción
   },
   {
     id: 2,
-    name: "Strawberry Heaven",
+    name: "StrawberryHeaven", // Clave de traducción
     image: "/cake_login.jpg",
-    ingredients: ["Vanilla sponge", "Strawberry jam", "Fresh strawberries"],
+    ingredients: ["Vanillasponge", "Strawberryjam", "Freshstrawberries"], // Claves de traducción
   },
   {
     id: 3,
-    name: "Vanilla Dream",
+    name: "VanillaDream", // Clave de traducción
     image: "/cake_tienda.jpg",
-    ingredients: ["Vanilla sponge", "Buttercream frosting", "Sprinkles"],
+    ingredients: ["Vanillasponge", "Buttercreamfrosting", "Sprinkles"], // Claves de traducción
   },
 ];
 
@@ -42,13 +43,41 @@ const CakeSelectionPage = () => {
     setFormOptions((prev) => ({ ...prev, [field]: value }));
   };
 
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleAddToCart = (cake) => {
+    const cartItem = {
+      id: cake.id,
+      name: cake.name,
+      ingredients: cake.ingredients,
+    };
+    addToCart("predefined", cartItem);
+    setShowConfirmation(true);
+
+    setTimeout(() => {
+      setShowConfirmation(false);
+    }, 3000);
+  };
+
+
   return (
-    <div className="min-h-screen bg-blue-100 p-6 text-black">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-center md:text-4xl">
+    <div className="min-h-screen bg-blue-100 p-6 text-black" style={{ 
+      backgroundImage: "url('/xd.jpg')", 
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <div className="flex justify-center">      
+        <h2 className="text-2xl text-white font-bold mb-6 text-center md:text-4xl bg-gray-800 bg-opacity-75 rounded-xl p-2">
           {t("chooseYourCake")}
         </h2>
-
+      </div>
+        {showConfirmation && (
+          <div className="fixed top-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform animate-bounce">
+            {t("itemAddedToCart")}
+          </div>
+        )}
+      <div className="max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {predefinedCakes.map((cake) => (
             <button
@@ -60,7 +89,7 @@ const CakeSelectionPage = () => {
             >
               <Image
                 src={cake.image}
-                alt={t(cake.name)}
+                alt={t(cake.name)} // Traducción del nombre
                 width={300}
                 height={200}
                 className="object-cover w-full h-48"
@@ -79,7 +108,7 @@ const CakeSelectionPage = () => {
             <ul className="list-disc pl-6 mb-6">
               {selectedCake.ingredients.map((ingredient, index) => (
                 <li key={index} className="text-gray-700">
-                  {t(ingredient)}
+                  {t(ingredient)} {/* Traducción de ingredientes */}
                 </li>
               ))}
             </ul>
@@ -99,7 +128,7 @@ const CakeSelectionPage = () => {
                       }`}
                       onClick={() => handleOptionChange("shape", shape)}
                     >
-                      {t(shape)}
+                      {t(shape)} {/* Traducción de formas */}
                     </button>
                   ))}
                 </div>
@@ -119,28 +148,28 @@ const CakeSelectionPage = () => {
                       }`}
                       onClick={() => handleOptionChange("size", size)}
                     >
-                      {t(size)}
+                      {t(size)} {/* Traducción de tamaños */}
                     </button>
                   ))}
                 </div>
               </div>
             </div>
 
-            <button
-              className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-gray-300"
-              disabled={!formOptions.shape || !formOptions.size}
-            >
-              {t("addToCart")}
+            <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              onClick={() => handleAddToCart(selectedCake)}>
+                {t("addToCart")}  
             </button>
           </div>
         )}
       </div>
+
       <Link href="/" className="w-full">
-                  <button 
-                  className=" font-medium text-white mt-6 bg-blue-600 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors">
-                  Back to shop
-                </button>
-                </Link>
+        <div className="flex justify-center mt-6">
+          <button className="font-medium text-white bg-blue-600 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors">
+            {t("home")}
+          </button>
+       </div>
+      </Link>
     </div>
   );
 };

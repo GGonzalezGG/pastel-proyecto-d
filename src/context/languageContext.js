@@ -52,6 +52,7 @@ const translations = {
       ],
       chatWithUs: "Habla Con Nosotros",
       helpChat: "Hola! Cómo te podemos ayudar?",
+      typeMessage: "Escribe un mensaje...",
       catalog: "Tortas",
       chooseYourCake: "Elige tu torta",
       defaultIngredients: "Ingredientes predeterminados",
@@ -63,7 +64,7 @@ const translations = {
       Medium: "Mediana",
       Large: "Grande",
       addToCart: "Agregar al carrito",
-      ChocolateDelight: "Delicia de Chocolate",
+      chocolateDelight: "Delicia de Chocolate",
       StrawberryHeaven: "Paraíso de Fresa",
       VanillaDream: "Sueño de Vainilla",
       Chocolatesponge: "Bizcocho de Chocolate",
@@ -73,7 +74,10 @@ const translations = {
       Strawberryjam: "Mermelada de Fresa",
       Freshstrawberries: "Fresas frescas",
       Buttercreamfrosting: "Glaseado de Mantequilla",
-      Sprinkles: "Grageas"
+      Sprinkles: "Grageas",
+      Send: "Enviar",
+      messageSent: "Mensaje enviado",
+      cart: "Carrito"
   },
   en: { 
       welcome: "Welcome", 
@@ -118,6 +122,7 @@ const translations = {
       ],
       chatWithUs: "Chat with us",
       helpChat: "Hi! How can we help you?",
+      typeMessage: "Type a Message...",
       catalog: "Cakes",
       chooseYourCake: "Choose Your Cake",
       defaultIngredients: "Default Ingredients",
@@ -129,7 +134,7 @@ const translations = {
       Medium: "Medium",
       Large: "Large",
       addToCart: "Add to Cart",
-      ChocolateDelight: "Chocolate Delight",
+      chocolateDelight:"Chocolate Delight",
       StrawberryHeaven: "Strawberry Heaven",
       VanillaDream: "Vanilla Dream",
       Chocolatesponge: "Chocolate sponge",
@@ -139,7 +144,10 @@ const translations = {
       Strawberryjam: "Strawberry jam",
       Freshstrawberries: "Fresh strawberries",
       Buttercreamfrosting: "Buttercream frosting",
-      Sprinkles: "Sprinkles"
+      Sprinkles: "Sprinkles",
+      Send: "Send",
+      messageSent: "Message Sent",
+      cart: "Cart"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -184,6 +192,7 @@ const translations = {
       ],
       chatWithUs: "Discutez avec nous",
       helpChat: "Bonjour! Comment pouvons-nous vous aider ?",
+      typeMessage: "Tapez un message...",
       catalog: "Gâteaux",
       chooseYourCake: "Choisissez votre gâteau",
       defaultIngredients: "Ingrédients par défaut",
@@ -195,7 +204,7 @@ const translations = {
       Medium: "Moyenne",
       Large: "Grande",
       addToCart: "Ajouter au panier",
-      ChocolateDelight: "Délice au chocolat",
+      chocolateDelight: "Délice au chocolat",
       StrawberryHeaven: "Paradis aux fraises",
       VanillaDream: "Rêve de vanille",
       Chocolatesponge: "Génoise au chocolat",
@@ -205,7 +214,10 @@ const translations = {
       Strawberryjam: "Confiture de fraises",
       Freshstrawberries: "Fraises fraîches",
       Buttercreamfrosting: "Glaçage au beurre",
-      Sprinkles: "Vermicelles"
+      Sprinkles: "Vermicelles",
+      Send: "Envoyer",
+      messageSent: "Message envoyé",
+      cart: "Panier"
   },
   de: { 
       welcome: "Willkommen", 
@@ -249,6 +261,7 @@ const translations = {
       ],
       chatWithUs: "Chatten Sie mit uns",
       helpChat: "Hallo! Wie können wir Ihnen helfen?",
+      typeMessage: "Geben Sie eine Nachricht ein...",
       catalog: "Kuchen",
       chooseYourCake: "Wähle deinen Kuchen",
       defaultIngredients: "Standardzutaten",
@@ -260,7 +273,7 @@ const translations = {
       Medium: "Mittel",
       Large: "Groß",
       addToCart: "In den Warenkorb",
-      ChocolateDelight: "Schokoladenfreude",
+      chocolateDelight: "Schokoladenfreude",
       StrawberryHeaven: "Erdbeerhimmel",
       VanillaDream: "Vanilletraum",
       Chocolatesponge: "Schokoladenbiskuit",
@@ -270,7 +283,10 @@ const translations = {
       Strawberryjam: "Erdbeermarmelade",
       Freshstrawberries: "Frische Erdbeeren",
       Buttercreamfrosting: "Buttercreme",
-      Sprinkles: "Streusel"
+      Sprinkles: "Streusel",
+      Send: "Schicken",
+      messageSent: "Nachricht gesendet",
+      cart: "Warenkorb"
   },
 };
 

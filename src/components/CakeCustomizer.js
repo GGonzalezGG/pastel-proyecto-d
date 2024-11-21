@@ -3,8 +3,23 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Check, ChevronDown, X } from 'lucide-react';
 import cakeOptions from './cakeOptions.json';
+import { addToCart } from "@/components/cartUtils";
 
 const CakeCustomizer = () => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const handleAddToCart = () => {
+    setShowConfirmation(true);
+    const cartItem = {
+      shape: selections.shape,
+      size: selections.size,
+      toppings: selections.toppings,
+      fillings: selections.fillings,
+    };
+    addToCart("custom", cartItem);
+    setTimeout(() => {
+      setShowConfirmation(false);
+    }, 3000);
+  };
   const [selections, setSelections] = useState({
     shape: '',
     size: '',
@@ -179,7 +194,11 @@ const CakeCustomizer = () => {
     <div className="min-h-screen bg-gray-100 py-8 px-4 text-blue-600">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl font-bold mb-6 text-center md:text-left md:text-4xl">Customize Your Cake</h2>
-        
+
+        {showConfirmation && (
+        <div className="fixed top-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform animate-bounce">
+          Item added to cart!
+        </div>)}
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
           {/* panel de personalizacion */}
           <div className="lg:col-span-2">
@@ -213,10 +232,8 @@ const CakeCustomizer = () => {
                 </button>
                 </Link>
               
-                <button 
-                    className="w-full font-medium mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
-                    disabled={!selections.size || !selections.shape}
-                >
+                <button className="w-full font-medium mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
+                  onClick={handleAddToCart} disabled={!selections.size || !selections.shape}>
                     Add to cart
                 </button>
                 
