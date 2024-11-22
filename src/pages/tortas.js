@@ -4,6 +4,7 @@ import Image from "next/image";
 import { LanguageContext } from '@/context/languageContext';
 import Link from "next/link";
 import { addToCart } from "@/components/cartUtils";
+import { useAuth } from '../app/context/AuthContext';
 
 const predefinedCakes = [
   {
@@ -28,6 +29,8 @@ const predefinedCakes = [
 
 const CakeSelectionPage = () => {
   const { t } = useContext(LanguageContext);
+  const { user } = useAuth(); // Obtenemos el usuario autenticado
+  const username = user?.username; // Verificamos si el usuario está autenticado
   const [selectedCake, setSelectedCake] = useState(null);
   const [formOptions, setFormOptions] = useState({
     shape: "",
@@ -46,20 +49,37 @@ const CakeSelectionPage = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleAddToCart = (cake) => {
+    if (!username) {
+      alert(t("pleaseLoginToAddToCart")); // Mensaje de advertencia si no hay usuario autenticado
+      return;
+    }
+
     const cartItem = {
       id: cake.id,
       name: cake.name,
       ingredients: cake.ingredients,
     };
-    addToCart("predefined", cartItem);
-    setShowConfirmation(true);
 
+    addToCart("predefined", username, cartItem); // Pasamos el nombre del usuario
+
+    setShowConfirmation(true);
     setTimeout(() => {
       setShowConfirmation(false);
     }, 3000);
   };
 
-
+  if (!username) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl text-gray-700">{t("pleaseLoginToContinue")}</p>
+        <Link href="/login">
+          <button className="ml-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+            {t("login")}
+          </button>
+        </Link>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-blue-100 p-6 text-black" style={{ 
       backgroundImage: "url('/xd.jpg')", 

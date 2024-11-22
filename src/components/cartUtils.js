@@ -1,33 +1,38 @@
-// cartUtils.js
+// Utilidades para manejar carritos personalizados por usuario
 const CART_KEYS = {
-    predefined: "predefinedCakesCart",
-    custom: "customCakesCart",
-  };
-  
-  // Obtiene el carrito desde localStorage
-  export const getCart = (cartType) => {
-    if (typeof window !== "undefined") {
-      return JSON.parse(localStorage.getItem(CART_KEYS[cartType])) || [];
-    }
-    return [];
-  };
-  
-  // Agrega un ítem al carrito
-  export const addToCart = (cartType, item) => {
-    const currentCart = getCart(cartType);
-    const updatedCart = [...currentCart, item];
-    localStorage.setItem(CART_KEYS[cartType], JSON.stringify(updatedCart));
-  };
-  
-  // Limpia el carrito
-  export const clearCart = (cartType) => {
-    localStorage.setItem(CART_KEYS[cartType], JSON.stringify([]));
-  };
-  
-  // Elimina un ítem específico del carrito
-  export const removeFromCart = (cartType, itemId) => {
-    const currentCart = getCart(cartType);
-    const updatedCart = currentCart.filter((item, index) => index !== itemId); // Elimina por índice
-    localStorage.setItem(CART_KEYS[cartType], JSON.stringify(updatedCart));
-  };
-  
+  predefined: "predefinedCakesCart",
+  custom: "customCakesCart",
+};
+
+// Obtiene el carrito desde localStorage para un usuario específico
+export const getCart = (cartType, username) => {
+  if (typeof window !== "undefined" && username) {
+    const userCart = JSON.parse(localStorage.getItem(`${username}_${CART_KEYS[cartType]}`)) || [];
+    return userCart;
+  }
+  return [];
+};
+
+// Agrega un ítem al carrito de un usuario específico
+export const addToCart = (cartType, username, item) => {
+  if (!username) return; // Aseguramos que hay un usuario válido
+  const currentCart = getCart(cartType, username);
+  const updatedCart = [...currentCart, item];
+  localStorage.setItem(`${username}_${CART_KEYS[cartType]}`, JSON.stringify(updatedCart));
+};
+
+
+// Limpia el carrito de un usuario específico
+export const clearCart = (cartType, username) => {
+  if (username) {
+    localStorage.setItem(`${username}_${CART_KEYS[cartType]}`, JSON.stringify([]));
+  }
+};
+
+// Elimina un ítem específico del carrito de un usuario
+export const removeFromCart = (cartType, username, itemId) => {
+  if (!username) return;
+  const currentCart = getCart(cartType, username);
+  const updatedCart = currentCart.filter((_, index) => index !== itemId);
+  localStorage.setItem(`${username}_${CART_KEYS[cartType]}`, JSON.stringify(updatedCart));
+};

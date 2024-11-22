@@ -44,7 +44,6 @@ export default function Contact() {
         <div className="flex flex-col items-center min-h-screen justify-center" style={{ backgroundImage: "url('/cake_tienda.jpg')",backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'}}>
-            <Header></Header>
             <Head>
                 <title>Contacto - Tortas del Guille</title>
             </Head>

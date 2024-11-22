@@ -1,21 +1,36 @@
 import { getCart, removeFromCart } from "@/components/cartUtils";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { useAuth } from '../app/context/AuthContext';
 import Link from "next/link";
 import { LanguageContext } from '@/context/languageContext';
 
 const CartPage = () => {
   const { t } = useContext(LanguageContext);
-  const [predefinedCart, setPredefinedCart] = useState(getCart("predefined"));
-  const [customCart, setCustomCart] = useState(getCart("custom"));
+  const { user } = useAuth();
+  const username = user?.username;
+
+  const [predefinedCart, setPredefinedCart] = useState([]);
+  const [customCart, setCustomCart] = useState([]);
+
+  useEffect(() => {
+    if (username) {
+      setPredefinedCart(getCart("predefined", username));
+      setCustomCart(getCart("custom", username));
+    }
+  }, [username]);
 
   const handleRemoveItem = (cartType, itemId) => {
-    removeFromCart(cartType, itemId);
+    removeFromCart(cartType, username, itemId);
     if (cartType === "predefined") {
-      setPredefinedCart(getCart("predefined"));
+      setPredefinedCart(getCart("predefined", username));
     } else {
-      setCustomCart(getCart("custom"));
+      setCustomCart(getCart("custom", username));
     }
   };
+
+  if (!username) {
+    return <p>{t("login_to_view_cart")}</p>;
+  }
 
   return (
     <div className="p-6">
@@ -29,7 +44,8 @@ const CartPage = () => {
             {predefinedCart.map((cake, index) => (
               <li key={index} className="flex justify-between items-center mb-2">
                 <div>
-                  <span className="font-medium">{cake.name}</span>: {cake.ingredients.join(", ")}
+                <span className="font-medium">{cake.name}</span>: {Array.isArray(cake.ingredients) 
+                  ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + curr, "") : "No ingredients available"}
                 </div>
                 <button
                   onClick={() => handleRemoveItem("predefined", index)}
@@ -76,11 +92,12 @@ const CartPage = () => {
           <button className="font-medium text-white bg-blue-600 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors">
             {t("home")}
           </button>
-       </div>
+        </div>
       </Link>
     </div>
   );
 };
 
 export default CartPage;
+
 

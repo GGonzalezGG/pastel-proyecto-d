@@ -4,18 +4,25 @@ import Link from 'next/link';
 import { Check, ChevronDown, X } from 'lucide-react';
 import cakeOptions from './cakeOptions.json';
 import { addToCart } from "@/components/cartUtils";
-
+import { useAuth } from '../app/context/AuthContext';
 const CakeCustomizer = () => {
+  const { user } = useAuth();
+  const username = user?.username; 
   const [showConfirmation, setShowConfirmation] = useState(false);
   const handleAddToCart = () => {
+  
     setShowConfirmation(true);
+  
     const cartItem = {
       shape: selections.shape,
       size: selections.size,
       toppings: selections.toppings,
       fillings: selections.fillings,
     };
-    addToCart("custom", cartItem);
+  
+    // Asociar el carrito al usuario
+    addToCart("custom", username, cartItem); 
+  
     setTimeout(() => {
       setShowConfirmation(false);
     }, 3000);
