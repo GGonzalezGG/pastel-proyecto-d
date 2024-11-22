@@ -29,67 +29,84 @@ const CartPage = () => {
   };
 
   if (!username) {
-    return <p>{t("login_to_view_cart")}</p>;
+    return( 
+      <div>
+        <p className="text-center text-lg">{t("login_to_view_cart")}</p>
+          <Link href="/" passHref>
+            <div className="flex justify-center mt-6">
+              <button className="font-medium bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto">
+                {t("home")}
+              </button>
+            </div>
+          </Link>
+      </div>)
   }
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
+    <div className="p-6 sm:p-8 lg:p-10 min-h-screen" style={{ 
+      backgroundImage: "url('/cake_cart2.jpg')", 
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <h2 className="text-2xl font-bold mb-6 text-center">{t("your_cart")}</h2>
 
       {/* Predefined Cakes */}
-      <section>
-        <h3 className="text-xl font-semibold">Predefined Cakes</h3>
+      <section className="mb-8 text-black">
+        <h3 className="text-xl font-semibold mb-4 text-white">{t("predefined_cakes")}</h3>
         {predefinedCart.length ? (
-          <ul>
+          <ul className="space-y-4">
             {predefinedCart.map((cake, index) => (
-              <li key={index} className="flex justify-between items-center mb-2">
+              <li key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
                 <div>
-                <span className="font-medium">{cake.name}</span>: {Array.isArray(cake.ingredients) 
-                  ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + curr, "") : "No ingredients available"}
+                  <span className="font-medium text-lg">{cake.name}</span>: {Array.isArray(cake.ingredients)
+                    ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + curr, "")
+                    : "No ingredients available"}
                 </div>
                 <button
                   onClick={() => handleRemoveItem("predefined", index)}
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 hover:text-red-700 text-sm font-medium"
                 >
-                  Remove
+                  {t("remove")}
                 </button>
               </li>
             ))}
           </ul>
         ) : (
-          <p>No predefined cakes in your cart.</p>
+          <p className="text-gray-500">{t("no_predefined_cakes")}</p>
         )}
       </section>
 
       {/* Customized Cakes */}
-      <section className="mt-6">
-        <h3 className="text-xl font-semibold">Customized Cakes</h3>
+      <section className="text-black">
+        <h3 className="text-xl font-semibold mb-4 text-white">{t("customized_cakes")}</h3>
         {customCart.length ? (
-          <ul>
+          <ul className="space-y-4">
             {customCart.map((cake, index) => (
-              <li key={index} className="flex justify-between items-center mb-2">
-                <div>
-                  <span className="font-medium">Shape:</span> {cake.shape},{" "}
-                  <span className="font-medium">Size:</span> {cake.size},{" "}
-                  <span className="font-medium">Toppings:</span> {cake.toppings.join(", ")},{" "}
-                  <span className="font-medium">Fillings:</span> {cake.fillings.join(", ")}
+              <li key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
+                <div className="space-y-1">
+                  <div><span className="font-medium">Shape:</span> {cake.shape}</div>
+                  <div><span className="font-medium">Size:</span> {cake.size}</div>
+                  <div><span className="font-medium">Toppings:</span> {cake.toppings.join(", ")}</div>
+                  <div><span className="font-medium">Fillings:</span> {cake.fillings.join(", ")}</div>
                 </div>
                 <button
                   onClick={() => handleRemoveItem("custom", index)}
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 hover:text-red-700 text-sm font-medium"
                 >
-                  Remove
+                  {t("remove")}
                 </button>
               </li>
             ))}
           </ul>
         ) : (
-          <p>No customized cakes in your cart.</p>
+          <p className="text-gray-500">{t("no_customized_cakes")}</p>
         )}
       </section>
-      <Link href="/" className="w-full">
+
+      <Link href="/" passHref>
         <div className="flex justify-center mt-6">
-          <button className="font-medium text-white bg-blue-600 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors">
+          <button className="font-medium bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto">
             {t("home")}
           </button>
         </div>
