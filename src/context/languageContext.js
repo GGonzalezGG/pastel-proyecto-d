@@ -51,7 +51,7 @@ const translations = {
         "Caramelo Salado",
       ],
       chatWithUs: "Habla Con Nosotros",
-      helpChat: "Hola! Cómo te podemos ayudar?",
+      helpChat: "¡Hola! ¿Cómo te podemos ayudar?",
       typeMessage: "Escribe un mensaje...",
       catalog: "Tortas",
       chooseYourCake: "Elige tu torta",
