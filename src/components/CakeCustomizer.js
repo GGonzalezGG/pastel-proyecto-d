@@ -5,10 +5,16 @@ import { Check, ChevronDown, X } from 'lucide-react';
 import cakeOptions from './cakeOptions.json';
 import { addToCart } from "@/components/cartUtils";
 import { useAuth } from '../app/context/AuthContext';
+import { useContext } from 'react';
+import { LanguageContext } from '@/context/languageContext';
+
 const CakeCustomizer = () => {
+  const { t } = useContext(LanguageContext);  
+
   const { user } = useAuth();
   const username = user?.username; 
   const [showConfirmation, setShowConfirmation] = useState(false);
+
   const handleAddToCart = () => {
   
     setShowConfirmation(true);
@@ -200,11 +206,11 @@ const CakeCustomizer = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 text-blue-600">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-center md:text-left md:text-4xl">Customize Your Cake</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center md:text-left md:text-4xl">{t("CustomCake")}</h2>
 
         {showConfirmation && (
         <div className="fixed top-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform animate-bounce">
-          Item added to cart!
+          {t("itemAdded")}
         </div>)}
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
           {/* panel de personalizacion */}
@@ -223,25 +229,25 @@ const CakeCustomizer = () => {
           {/* Muestra de los ingredientes seleccionados */}
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-xl shadow-lg sticky top-8">
-              <h3 className="font-semibold mb-4 text-lg md:text-xl">Your Selection</h3>
+              <h3 className="font-semibold mb-4 text-lg md:text-xl">{t("yourSelect")}</h3>
               {Object.entries(selections).map(([category, selection]) => (
                 <SelectedItems key={category} category={category} selection={selection} />
               ))}
               {Object.values(selections).every(val => !val || (Array.isArray(val) && val.length === 0)) && (
-                <p className="text-gray-500 text-base md:text-lg">No items selected yet</p>
+                <p className="text-gray-500 text-base md:text-lg">{t("noItems")}</p>
               )}
               
               <div className="md:flex">
                 <Link href="/" className="w-full">
                   <button 
                   className="w-full font-medium mt-6 bg-gray-100 text-stone-900 py-3 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors">
-                  Back to shop
+                  {t("home")}
                 </button>
                 </Link>
               
                 <button className="w-full font-medium mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
                   onClick={handleAddToCart} disabled={!selections.size || !selections.shape}>
-                    Add to cart
+                    {t("AddToCart")}
                 </button>
                 
               </div>

@@ -77,7 +77,12 @@ const translations = {
       Sprinkles: "Grageas",
       Send: "Enviar",
       messageSent: "Mensaje enviado",
-      cart: "Carrito"
+      cart: "Carrito",
+      AddToCart: "Añadir al carrito",
+      yourSelect: "Tu elección",
+      noItems: "No hay elementos seleccionados todavía",
+      CustomCake: "Personaliza tu torta",
+      itemAdded: "¡Añadido al carrito correctamente!"
   },
   en: { 
       welcome: "Welcome", 
@@ -147,7 +152,12 @@ const translations = {
       Sprinkles: "Sprinkles",
       Send: "Send",
       messageSent: "Message Sent",
-      cart: "Cart"
+      cart: "Cart",
+      AddToCart: "Add to Cart",
+      yourSelect: "Your selection",
+      noItems: "No items selected yet",
+      CustomCake: "Customize Your cake",
+      itemAdded: "Item added to cart!"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -217,7 +227,12 @@ const translations = {
       Sprinkles: "Vermicelles",
       Send: "Envoyer",
       messageSent: "Message envoyé",
-      cart: "Panier"
+      cart: "Panier",
+      AddToCart: "Ajouter au panier",
+      yourSelect: "votre sélection",
+      noItems: "Aucun élément n'a encore été sélectionné",
+      CustomCake: "Personnalisez votre gâteau",
+      itemAdded: "Article ajouté au panier!"
   },
   de: { 
       welcome: "Willkommen", 
@@ -286,7 +301,12 @@ const translations = {
       Sprinkles: "Streusel",
       Send: "Schicken",
       messageSent: "Nachricht gesendet",
-      cart: "Warenkorb"
+      cart: "Warenkorb",
+      AddToCart: "In den Warenkorb legen",
+      yourSelect: "Ihre Auswahl",
+      noItems: "Noch keine Artikel ausgewählt",
+      CustomCake: "Torte individuell gestalten",
+      itemAdded: "Artikel in den Warenkorb gelegt!"
   },
 };
 
