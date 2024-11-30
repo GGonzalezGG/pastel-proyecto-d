@@ -22,9 +22,6 @@ export default function Home() {
                     <div className="flex-grow"> {/* Esto permitirá que la lista ocupe el espacio disponible */}
                         <List />
                     </div>
-                    <div className="mt-4 sm:mt-0 sm:ml-4"> {/* Margen superior para móviles */}
-                        <LanguageSelector />
-                    </div>
                 </div>
                 <FeaturedFlavors />
                 <ImageCarousel/>

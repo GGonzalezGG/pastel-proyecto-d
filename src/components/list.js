@@ -19,9 +19,6 @@ export default function List() {
             <li>
                 <Link href="/dashboard" className="text-2xl md:text-3xl">{t("customize")}</Link>
             </li>
-            <li>
-                <Link href="/cart" className="text-2xl md:text-3xl">{t("cart")}</Link>
-            </li>
         </ul>
     );
 }

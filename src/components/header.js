@@ -3,8 +3,10 @@
 import Link from 'next/link';
 import { useContext } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import { ShoppingCart } from 'lucide-react';
 import { LanguageContext } from '@/context/languageContext';
 import { useAuth } from '../app/context/AuthContext';
+import LanguageSelector from "@/components/language";
 
 export default function Header() {
     const { t, language, changeLanguage } = useContext(LanguageContext);
@@ -14,7 +16,7 @@ export default function Header() {
 
     const handleLogout = () => {
         logout();
-        if (pathname === '/dashboard') {  // Updated to match your route
+        if (pathname === '/dashboard') {
             router.push('/login');
         }
     };
@@ -26,7 +28,7 @@ export default function Header() {
                     {user ? `${t("welcome")} ${user.username}` : t("welcome")}
                 </h1>
             </div>
-            <div className="flex-none space-x-2 mt-2 md:mt-0">
+            <div className="flex flex-wrap items-center space-x-2 mt-2 md:mt-0">
                 {user ? (
                     <button 
                         className="font-medium bg-gray-100 text-stone-900 py-2 px-4 rounded-lg hover:bg-red-600 hover:text-gray-50 transition-colors"
@@ -35,7 +37,7 @@ export default function Header() {
                         {t("logout")}
                     </button>
                 ) : (
-                    <>
+                    <div className="flex space-x-2">
                         <Link href="/login">
                             <button className="bg-blue-500 text-white px-4 py-2 rounded text-sm md:text-base">
                                 {t("login")}
@@ -46,8 +48,17 @@ export default function Header() {
                                 {t("register")}
                             </button>
                         </Link>
-                    </>
+                    </div>
                 )}
+                
+                <LanguageSelector />
+                
+                <Link href="/cart" className="flex items-center">
+                    <button className="bg-blue-500 text-white px-3 py-2 rounded flex items-center space-x-2 text-sm md:text-base">
+                        <ShoppingCart size={20} />
+                        <span>{t("cart")}</span>
+                    </button>
+                </Link>    
             </div>
         </header>
     );
