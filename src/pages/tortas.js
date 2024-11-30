@@ -5,6 +5,7 @@ import { LanguageContext } from '@/context/languageContext';
 import Link from "next/link";
 import { addToCart } from "@/components/cartUtils";
 import { useAuth } from '../app/context/AuthContext';
+import Header from "@/components/header";
 
 const predefinedCakes = [
   {
@@ -81,12 +82,16 @@ const CakeSelectionPage = () => {
     );
   }
   return (
-    <div className="min-h-screen bg-blue-100 p-6 text-black" style={{ 
+    <div className="min-h-screen text-black" style={{ 
       backgroundImage: "url('/xd.jpg')", 
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}>
+      <div className="pb-3">
+      <Header/>
+      </div>
+      
       <div className="flex justify-center">      
         <h2 className="text-2xl text-white font-bold mb-6 text-center md:text-4xl bg-gray-800 bg-opacity-75 rounded-xl p-2">
           {t("chooseYourCake")}
