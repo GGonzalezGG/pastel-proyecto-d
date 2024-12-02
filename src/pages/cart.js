@@ -30,7 +30,11 @@ const CartPage = () => {
 
   if (!username) {
     return( 
-      <div>
+      <div className="p-6 sm:p-8 lg:p-10 min-h-screen" style={{ 
+        backgroundImage: "url('/cake_cart2.jpg')", 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat' }}>
         <p className="text-center text-lg">{t("login_to_view_cart")}</p>
           <Link href="/" passHref>
             <div className="flex justify-center mt-6">
@@ -49,11 +53,11 @@ const CartPage = () => {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}>
-      <h2 className="text-2xl font-bold mb-6 text-center">{t("your_cart")}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("cart")}</h2>
 
       {/* Predefined Cakes */}
       <section className="mb-8 text-black">
-        <h3 className="text-xl font-semibold mb-4 text-white">{t("predefined_cakes")}</h3>
+        <h3 className="text-xl text-center font-semibold mb-4 text-white bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("predefined_cakes")}</h3>
         {predefinedCart.length ? (
           <ul className="space-y-4">
             {predefinedCart.map((cake, index) => (
@@ -79,7 +83,7 @@ const CartPage = () => {
 
       {/* Customized Cakes */}
       <section className="text-black">
-        <h3 className="text-xl font-semibold mb-4 text-white">{t("customized_cakes")}</h3>
+        <h3 className="text-xl text-center font-semibold mb-4 text-white bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("customized_cakes")}</h3>
         {customCart.length ? (
           <ul className="space-y-4">
             {customCart.map((cake, index) => (

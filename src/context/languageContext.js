@@ -82,7 +82,9 @@ const translations = {
       yourSelect: "Tu elección",
       noItems: "No hay elementos seleccionados todavía",
       CustomCake: "Personaliza tu torta",
-      itemAdded: "¡Añadido al carrito correctamente!"
+      itemAdded: "¡Añadido al carrito correctamente!",
+      predefined_cakes: "Tortas Clásicas",
+      customized_cakes: "Pedidos Personalizados"
   },
   en: { 
       welcome: "Welcome", 
@@ -157,7 +159,9 @@ const translations = {
       yourSelect: "Your selection",
       noItems: "No items selected yet",
       CustomCake: "Customize Your cake",
-      itemAdded: "Item added to cart!"
+      itemAdded: "Item added to cart!",
+      predefined_cakes: "Classic Cakes",
+      customized_cakes: "Custom Orders"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -232,7 +236,9 @@ const translations = {
       yourSelect: "votre sélection",
       noItems: "Aucun élément n'a encore été sélectionné",
       CustomCake: "Personnalisez votre gâteau",
-      itemAdded: "Article ajouté au panier!"
+      itemAdded: "Article ajouté au panier!",
+      predefined_cakes: "Gâteaux classiques",
+      customized_cakes: "Commandes personnalisées"
   },
   de: { 
       welcome: "Willkommen", 
@@ -306,7 +312,9 @@ const translations = {
       yourSelect: "Ihre Auswahl",
       noItems: "Noch keine Artikel ausgewählt",
       CustomCake: "Torte individuell gestalten",
-      itemAdded: "Artikel in den Warenkorb gelegt!"
+      itemAdded: "Artikel in den Warenkorb gelegt!",
+      predefined_cakes: "Klassische Kuchen",
+      customized_cakes: "Sonderanfertigungen"
   },
 };
 
