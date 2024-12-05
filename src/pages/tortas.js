@@ -59,6 +59,7 @@ const CakeSelectionPage = () => {
       id: cake.id,
       name: cake.name,
       ingredients: cake.ingredients,
+      image: cake.image
     };
 
     addToCart("predefined", username, cartItem); // Pasamos el nombre del usuario

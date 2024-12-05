@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import { useAuth } from '../app/context/AuthContext';
 import Link from "next/link";
 import { LanguageContext } from '@/context/languageContext';
+import Image from "next/image";
 
 const CartPage = () => {
   const { t } = useContext(LanguageContext);
@@ -47,13 +48,15 @@ const CartPage = () => {
   }
 
   return (
-    <div className="p-6 sm:p-8 lg:p-10 min-h-screen" style={{ 
+    <div className=" p-6 sm:p-8 lg:p-10 min-h-screen" style={{ 
       backgroundImage: "url('/cake_cart2.jpg')", 
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
-    }}>
-      <h2 className="text-2xl font-bold mb-6 text-center bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("cart")}</h2>
+    }}> 
+      <div >
+        <h1 className=" flex flex-col items-center text-2xl font-bold m-6 bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("cart")}</h1>
+      </div>
 
       {/* Predefined Cakes */}
       <section className="mb-8 text-black">
@@ -63,13 +66,13 @@ const CartPage = () => {
             {predefinedCart.map((cake, index) => (
               <li key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
                 <div>
-                  <span className="font-medium text-lg">{cake.name}</span>: {Array.isArray(cake.ingredients)
-                    ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + curr, "")
+                  <span className="font-medium text-lg">{t(cake.name)}</span>: {Array.isArray(cake.ingredients)
+                    ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + t(curr), "") 
                     : "No ingredients available"}
                 </div>
                 <button
                   onClick={() => handleRemoveItem("predefined", index)}
-                  className="text-red-500 hover:text-red-700 text-sm font-medium"
+                  className="text-white hover:bg-red-700 text-sm font-medium bg-red-600 rounded-xl p-2"
                 >
                   {t("remove")}
                 </button>
@@ -89,14 +92,14 @@ const CartPage = () => {
             {customCart.map((cake, index) => (
               <li key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
                 <div className="space-y-1">
-                  <div><span className="font-medium">Shape:</span> {cake.shape}</div>
-                  <div><span className="font-medium">Size:</span> {cake.size}</div>
-                  <div><span className="font-medium">Toppings:</span> {cake.toppings.join(", ")}</div>
-                  <div><span className="font-medium">Fillings:</span> {cake.fillings.join(", ")}</div>
+                  <div><span className="font-medium"></span> {t("shape")}: {t(cake.shape)}</div>
+                  <div><span className="font-medium"></span> {t("size")}: {cake.size}</div>
+                  <div><span className="font-medium"></span> {t("toppings")}: {cake.toppings.join(", ")}</div>
+                  <div><span className="font-medium"></span> {t("fillings")}: {cake.fillings.join(", ")}</div>
                 </div>
                 <button
                   onClick={() => handleRemoveItem("custom", index)}
-                  className="text-red-500 hover:text-red-700 text-sm font-medium"
+                  className="text-white hover:bg-red-700 text-sm font-medium bg-red-600 rounded-xl p-2"
                 >
                   {t("remove")}
                 </button>

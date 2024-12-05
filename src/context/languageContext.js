@@ -16,6 +16,7 @@ const translations = {
       contact: "Contacto", 
       customize: "Personaliza tu pedido", 
       login: "Iniciar Sesión", 
+      logout: "Cerrar Sesión",
       register: "Registrarse", 
       language: "Idioma", 
       spanish: "Español", 
@@ -59,6 +60,7 @@ const translations = {
       shape: "Forma",
       size: "Tamaño",
       Circular: "Circular",
+      Circle: "Circular",
       Square: "Cuadrada",
       Small: "Pequeña",
       Medium: "Mediana",
@@ -84,7 +86,10 @@ const translations = {
       CustomCake: "Personaliza tu torta",
       itemAdded: "¡Añadido al carrito correctamente!",
       predefined_cakes: "Tortas Clásicas",
-      customized_cakes: "Pedidos Personalizados"
+      customized_cakes: "Pedidos Personalizados",
+      toppings: "Ingredientes",
+      fillings: "Rellenos",
+      remove: "Eliminar"
   },
   en: { 
       welcome: "Welcome", 
@@ -93,6 +98,7 @@ const translations = {
       contact: "Contact", 
       customize: "Customize your order", 
       login: "Login", 
+      logout: "Logout",
       register: "Register", 
       language: "Language", 
       spanish: "Spanish", 
@@ -161,7 +167,10 @@ const translations = {
       CustomCake: "Customize Your cake",
       itemAdded: "Item added to cart!",
       predefined_cakes: "Classic Cakes",
-      customized_cakes: "Custom Orders"
+      customized_cakes: "Custom Orders",
+      toppings: "Toppings",
+      fillings: "Fillings",
+      remove: "Remove"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -170,6 +179,7 @@ const translations = {
       contact: "Contact", 
       customize: "Personnalisez votre commande", 
       login: "Connexion", 
+      logout: "Déconnexion",
       register: "S'inscrire", 
       language: "Langue", 
       spanish: "Espagnol", 
@@ -238,7 +248,10 @@ const translations = {
       CustomCake: "Personnalisez votre gâteau",
       itemAdded: "Article ajouté au panier!",
       predefined_cakes: "Gâteaux classiques",
-      customized_cakes: "Commandes personnalisées"
+      customized_cakes: "Commandes personnalisées",
+      toppings: "Garnitures",
+      fillings: "Garnitures",
+      remove: "Retirer"
   },
   de: { 
       welcome: "Willkommen", 
@@ -247,6 +260,7 @@ const translations = {
       contact: "Kontakt", 
       customize: "Bestellung anpassen", 
       login: "Anmelden", 
+      logout: "Abmelden",
       register: "Registrieren", 
       language: "Sprache", 
       spanish: "Spanisch", 
@@ -314,7 +328,10 @@ const translations = {
       CustomCake: "Torte individuell gestalten",
       itemAdded: "Artikel in den Warenkorb gelegt!",
       predefined_cakes: "Klassische Kuchen",
-      customized_cakes: "Sonderanfertigungen"
+      customized_cakes: "Sonderanfertigungen",
+      toppings: "Beläge",
+      fillings: "Füllungen",
+      remove: "Entfernen"
   },
 };
 

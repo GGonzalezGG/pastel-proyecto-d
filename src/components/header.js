@@ -24,7 +24,7 @@ export default function Header() {
     return (
         <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-900 bg-opacity-90">
             <div className="flex-grow text-center">
-                <h1 className="text-3xl md:text-4xl text-white">
+                <h1 className="text-3xl md:text-4xl text-white 	ml-20">
                     {user ? `${t("welcome")} ${user.username}` : t("welcome")}
                 </h1>
             </div>
