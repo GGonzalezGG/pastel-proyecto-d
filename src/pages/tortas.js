@@ -54,12 +54,18 @@ const CakeSelectionPage = () => {
       alert(t("pleaseLoginToAddToCart")); // Mensaje de advertencia si no hay usuario autenticado
       return;
     }
+    if (!formOptions.shape || !formOptions.size) {
+      alert(t("pleaseSelectShapeAndSize")); // Mensaje de advertencia si faltan opciones
+      return;
+    }
 
     const cartItem = {
       id: cake.id,
       name: cake.name,
       ingredients: cake.ingredients,
-      image: cake.image
+      image: cake.image,
+      shape: formOptions.shape, // Agregar la forma seleccionada
+      size: formOptions.size, // Agregar el tamaño seleccionado
     };
 
     addToCart("predefined", username, cartItem); // Pasamos el nombre del usuario
@@ -73,7 +79,7 @@ const CakeSelectionPage = () => {
   if (!username) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-xl text-gray-700">{t("pleaseLoginToContinue")}</p>
+        <p className="text-xl text-white">{t("pleaseLoginToContinue")}</p>
         <Link href="/login">
           <button className="ml-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
             {t("login")}
@@ -100,7 +106,7 @@ const CakeSelectionPage = () => {
       </div>
         {showConfirmation && (
           <div className="fixed top-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform animate-bounce">
-            {t("itemAddedToCart")}
+            {t("itemAdded")}
           </div>
         )}
       <div className="max-w-7xl mx-auto ">

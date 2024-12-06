@@ -62,9 +62,9 @@ const translations = {
       Circular: "Circular",
       Circle: "Circular",
       Square: "Cuadrada",
-      Small: "Pequeña",
-      Medium: "Mediana",
-      Large: "Grande",
+      Small: "Pequeña (8-10 personas)",
+      Medium: "Mediana (12-15 personas)",
+      Large: "Grande (18-20 personas)",
       addToCart: "Agregar al carrito",
       chocolateDelight: "Delicia de Chocolate",
       StrawberryHeaven: "Paraíso de Fresa",
@@ -89,7 +89,13 @@ const translations = {
       customized_cakes: "Pedidos Personalizados",
       toppings: "Ingredientes",
       fillings: "Rellenos",
-      remove: "Eliminar"
+      remove: "Eliminar",
+      no_customized_cakes: "Sin tortas personalizadas",
+      no_predefined_cakes: "Sin tortas clásicas",
+      invalidUser: "Usuario Inválido",
+      pleaseLoginToContinue: "Por favor inicie sesión para continuar",
+      pleaseLoginToAddToCart: "Por favor inicie sesión para añadir al carrito",
+      pleaseSelectShapeAndSize: "Por favor selecciona forma y tamaño"
   },
   en: { 
       welcome: "Welcome", 
@@ -170,7 +176,12 @@ const translations = {
       customized_cakes: "Custom Orders",
       toppings: "Toppings",
       fillings: "Fillings",
-      remove: "Remove"
+      remove: "Remove",
+      no_customized_cakes: "No customized cakes",
+      no_predefined_cakes: "No predefined cakes",
+      pleaseLoginToContinue: "Please Login to continue",
+      pleaseLoginToAddToCart: "Please Login to add to Cart",
+      pleaseSelectShapeAndSize: "Please select shape and size"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -251,7 +262,12 @@ const translations = {
       customized_cakes: "Commandes personnalisées",
       toppings: "Garnitures",
       fillings: "Garnitures",
-      remove: "Retirer"
+      remove: "Retirer",
+      no_customized_cakes: "Pas de gâteaux personnalisés",
+      no_predefined_cakes: "Pas de gâteaux prédéfinis",
+      pleaseLoginToContinue: "Veuillez vous connecter pour continuer",
+      pleaseLoginToAddToCart: "Veuillez vous connecter pour ajouter au panier",
+      pleaseSelectShapeAndSize: "Veuillez sélectionner la forme et la taille"
   },
   de: { 
       welcome: "Willkommen", 
@@ -331,7 +347,12 @@ const translations = {
       customized_cakes: "Sonderanfertigungen",
       toppings: "Beläge",
       fillings: "Füllungen",
-      remove: "Entfernen"
+      remove: "Entfernen",
+      no_customized_cakes: "Keine maßgeschneiderten Kuchen",
+      no_predefined_cakes: "Keine vordefinierten Kuchen",
+      pleaseLoginToContinue: "Bitte melden Sie sich an, um fortzufahren",
+      pleaseLoginToAddToCart: "Bitte melden Sie sich an, um es in den Warenkorb zu legen",
+      pleaseSelectShapeAndSize: "Bitte wählen Sie Form und Größe aus"
   },
 };
 

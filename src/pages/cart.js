@@ -69,6 +69,8 @@ const CartPage = () => {
                   <span className="font-medium text-lg">{t(cake.name)}</span>: {Array.isArray(cake.ingredients)
                     ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + t(curr), "") 
                     : "No ingredients available"}
+                  <div><span className="font-medium"></span> {t("shape")}: {t(cake.shape)}</div>
+                  <div><span className="font-medium"></span> {t("size")}: {t(cake.size)}</div>
                 </div>
                 <button
                   onClick={() => handleRemoveItem("predefined", index)}
@@ -80,7 +82,7 @@ const CartPage = () => {
             ))}
           </ul>
         ) : (
-          <p className="text-gray-500">{t("no_predefined_cakes")}</p>
+          <p className="bg-white text-black p-2 rounded-xl text-center py-4">{t("no_predefined_cakes")}</p>
         )}
       </section>
 
@@ -107,7 +109,7 @@ const CartPage = () => {
             ))}
           </ul>
         ) : (
-          <p className="text-gray-500">{t("no_customized_cakes")}</p>
+          <p className="bg-white text-black p-2 rounded-xl text-center py-4">{t("no_customized_cakes")}</p>
         )}
       </section>
 
