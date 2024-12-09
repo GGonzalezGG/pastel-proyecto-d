@@ -37,11 +37,11 @@ const CakeCustomizer = () => {
     fillings: []
   });
 
-  const [openCategory, setOpenCategory] = useState(null);
-  const [openSubcategory, setOpenSubcategory] = useState(null);
+  // Changed to use an object to track open states
+  const [openCategories, setOpenCategories] = useState({});
+  const [openSubcategories, setOpenSubcategories] = useState({});
 
   const getTranslation = (item, translationPath) => {
-    // Helper function to get translation, falling back to English or the item itself
     if (typeof item === 'object' && item.translations) {
       return item.translations[language] || item.translations['en'] || item;
     }
@@ -65,6 +65,21 @@ const CakeCustomizer = () => {
           : [...prev[category], item]
       }));
     }
+  };
+
+  const toggleCategory = (mainCategory) => {
+    setOpenCategories(prev => ({
+      ...prev,
+      [mainCategory]: !prev[mainCategory]
+    }));
+  };
+
+  const toggleSubcategory = (mainCategory, subKey) => {
+    const subcategoryKey = `${mainCategory}-${subKey}`;
+    setOpenSubcategories(prev => ({
+      ...prev,
+      [subcategoryKey]: !prev[subcategoryKey]
+    }));
   };
 
   const SingleChoiceSection = ({ category, categoryData }) => (
@@ -116,12 +131,12 @@ const CakeCustomizer = () => {
       return <SingleChoiceSection category={mainCategory} categoryData={categoryData} />;
     }
 
-    const isOpen = openCategory === mainCategory;
+    const isOpen = openCategories[mainCategory];
 
     return (
       <div className="mb-6">
         <button
-          onClick={() => setOpenCategory(isOpen ? null : mainCategory)}
+          onClick={() => toggleCategory(mainCategory)}
           className="w-full flex items-center justify-between p-3 bg-white rounded-lg border hover:bg-gray-50 transition-colors"
         >
           <span className="font-semibold md:text-lg">
@@ -147,12 +162,13 @@ const CakeCustomizer = () => {
   };
 
   const SubcategorySection = ({ mainCategory, subKey, subCategory }) => {
-    const isOpen = openSubcategory === `${mainCategory}-${subKey}`;
+    const subcategoryKey = `${mainCategory}-${subKey}`;
+    const isOpen = openSubcategories[subcategoryKey];
 
     return (
       <div className="ml-4">
         <button
-          onClick={() => setOpenSubcategory(isOpen ? null : `${mainCategory}-${subKey}`)}
+          onClick={() => toggleSubcategory(mainCategory, subKey)}
           className="w-full flex items-center justify-between p-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
         >
           <span className="font-medium">
@@ -233,19 +249,6 @@ const CakeCustomizer = () => {
         <div className="fixed top-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform animate-bounce">
           {t("itemAdded")}
         </div>)}
-        
-        <div className="mb-4 flex justify-end">
-          <select 
-            value={language} 
-            onChange={(e) => setLanguage(e.target.value)}
-            className="p-2 border rounded"
-          >
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-          </select>
-        </div>
 
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
           {/* Customization panel */}
