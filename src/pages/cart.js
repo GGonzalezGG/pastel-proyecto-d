@@ -66,7 +66,7 @@ const CartPage = () => {
         {predefinedCart.length ? (
           <ul className="p-6 space-y-4">
             {predefinedCart.map((cake, index) => (
-              <li key={index} className="bg-gray-100 p-4 rounded-lg border border-gray-200 shadow-sm flex items-center justify-between">
+              <li key={index} className="bg-gray-100 p-4 rounded-lg border border-gray-200 shadow-sm md:flex items-center justify-between">
                 <div>
                   <div className="text-gray-800 font-bold text-xl mb-2">
                     {t(cake.name)}
@@ -81,7 +81,7 @@ const CartPage = () => {
                 </div>
                 <button
                   onClick={() => handleRemoveItem("predefined", index)}
-                  className="text-white bg-red-600 hover:bg-red-700 font-medium py-2 px-4 rounded-lg"
+                  className="mt-4 text-white bg-red-600 hover:bg-red-700 font-medium py-2 px-4 rounded-lg md:ml-4 md:mt-0 w-full md:w-auto flex justify-center"
                 >
                   {t("remove")}
                 </button>
@@ -102,7 +102,7 @@ const CartPage = () => {
         {customCart.length ? (
           <ul className="p-6 space-y-4">
             {customCart.map((cake, index) => (
-              <li key={index} className="bg-gray-100 p-4 rounded-lg border border-gray-200 shadow-sm flex items-center justify-between">
+              <li key={index} className="bg-gray-100 p-4 rounded-lg border border-gray-200 shadow-sm md:flex items-center md:justify-between">
                 <div>
                   <div className="text-gray-800 font-bold text-xl mb-2">
                     {t("shape")}: {t(cake.shape)}
@@ -125,7 +125,7 @@ const CartPage = () => {
                 </div>
                 <button
                   onClick={() => handleRemoveItem("custom", index)}
-                  className="mt-4 text-white bg-red-600 hover:bg-red-700 font-medium py-2 px-4 rounded-lg"
+                  className="mt-4 text-white bg-red-600 hover:bg-red-700 font-medium py-2 px-4 rounded-lg md:ml-4 md:mt-0 w-full md:w-auto flex justify-center"
                 >
                   {t("remove")}
                 </button>
