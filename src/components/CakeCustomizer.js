@@ -1,22 +1,19 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { Check, ChevronDown, X } from 'lucide-react';
 import cakeOptions from './cakeOptions.json';
 import { addToCart } from "@/components/cartUtils";
 import { useAuth } from '../app/context/AuthContext';
-import { useContext } from 'react';
 import { LanguageContext } from '@/context/languageContext';
 
 const CakeCustomizer = () => {
-  const { t } = useContext(LanguageContext);  
-
+  const { language, t } = useContext(LanguageContext);  
   const { user } = useAuth();
   const username = user?.username; 
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleAddToCart = () => {
-  
     setShowConfirmation(true);
   
     const cartItem = {
@@ -26,13 +23,13 @@ const CakeCustomizer = () => {
       fillings: selections.fillings,
     };
   
-    // Asociar el carrito al usuario
     addToCart("custom", username, cartItem); 
   
     setTimeout(() => {
       setShowConfirmation(false);
     }, 3000);
   };
+
   const [selections, setSelections] = useState({
     shape: '',
     size: '',
@@ -42,6 +39,17 @@ const CakeCustomizer = () => {
 
   const [openCategory, setOpenCategory] = useState(null);
   const [openSubcategory, setOpenSubcategory] = useState(null);
+
+  const getTranslation = (item, translationPath) => {
+    // Helper function to get translation, falling back to English or the item itself
+    if (typeof item === 'object' && item.translations) {
+      return item.translations[language] || item.translations['en'] || item;
+    }
+    if (translationPath && translationPath.translations) {
+      return translationPath.translations[language] || translationPath.translations['en'] || translationPath;
+    }
+    return item;
+  };
 
   const handleSelection = (category, item) => {
     if (cakeOptions[category].type === 'single') {
@@ -61,17 +69,23 @@ const CakeCustomizer = () => {
 
   const SingleChoiceSection = ({ category, categoryData }) => (
     <div className="mb-6">
-      <h3 className="font-semibold mb-3 md:text-lg">{categoryData.name}</h3>
+      <h3 className="font-semibold mb-3 md:text-lg">
+        {getTranslation(categoryData.name, { translations: categoryData.name })}
+      </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:text-base">
         {(categoryData.options || []).map((option) => {
+          const displayName = category === 'size' 
+            ? getTranslation(option.name, { translations: option.name }) 
+            : getTranslation(option, option);
+          
           const isSelected = category === 'size' 
-            ? selections[category] === option.name 
-            : selections[category] === option;
+            ? selections[category] === displayName 
+            : selections[category] === displayName;
           
           return (
             <button
-              key={category === 'size' ? option.name : option}
-              onClick={() => handleSelection(category, category === 'size' ? option.name : option)}
+              key={displayName}
+              onClick={() => handleSelection(category, displayName)}
               className={`
                 p-4 rounded-lg border-2 transition-all h-full
                 ${isSelected 
@@ -82,13 +96,13 @@ const CakeCustomizer = () => {
             >
               {category === 'size' ? (
                 <div className="text-left">
-                  <div className="font-medium">{option.name}</div>
+                  <div className="font-medium">{displayName}</div>
                   <div className="text-sm text-gray-500 md:text-base">
-                    Serves: {option.servings} people
+                    {t("Serves")}: {option.servings} {t("people")}
                   </div>
                 </div>
               ) : (
-                <div className="font-medium">{option}</div>
+                <div className="font-medium">{displayName}</div>
               )}
             </button>
           );
@@ -110,7 +124,9 @@ const CakeCustomizer = () => {
           onClick={() => setOpenCategory(isOpen ? null : mainCategory)}
           className="w-full flex items-center justify-between p-3 bg-white rounded-lg border hover:bg-gray-50 transition-colors"
         >
-          <span className="font-semibold md:text-lg">{categoryData.name}</span>
+          <span className="font-semibold md:text-lg">
+            {getTranslation(categoryData.name, { translations: categoryData.name })}
+          </span>
           <ChevronDown className={`w-5 h-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
@@ -139,24 +155,29 @@ const CakeCustomizer = () => {
           onClick={() => setOpenSubcategory(isOpen ? null : `${mainCategory}-${subKey}`)}
           className="w-full flex items-center justify-between p-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
         >
-          <span className="font-medium">{subCategory.name}</span>
+          <span className="font-medium">
+            {getTranslation(subCategory.name, { translations: subCategory.name })}
+          </span>
           <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {isOpen && (
           <div className="mt-1 ml-2 grid grid-cols-1 sm:grid-cols-2 gap-1">
-            {subCategory.options.map((option) => (
-              <button
-                key={option}
-                onClick={() => handleSelection(mainCategory, option)}
-                className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors"
-              >
-                <span>{option}</span>
-                {selections[mainCategory].includes(option) ? (
-                  <Check className="w-4 h-4 text-green-500" />
-                ) : null}
-              </button>
-            ))}
+            {subCategory.options.map((option) => {
+              const displayName = getTranslation(option, option);
+              return (
+                <button
+                  key={displayName}
+                  onClick={() => handleSelection(mainCategory, displayName)}
+                  className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <span>{displayName}</span>
+                  {selections[mainCategory].includes(displayName) ? (
+                    <Check className="w-4 h-4 text-green-500" />
+                  ) : null}
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
@@ -169,7 +190,7 @@ const CakeCustomizer = () => {
     return (
       <div className="mb-3">
         <h4 className="font-medium text-sm text-gray-600 mb-2 md:text-lg">
-          {cakeOptions[category].name}:
+          {getTranslation(cakeOptions[category].name, { translations: cakeOptions[category].name })}:
         </h4>
         <div className="flex flex-wrap gap-2">
           {Array.isArray(selection) ? (
@@ -212,8 +233,22 @@ const CakeCustomizer = () => {
         <div className="fixed top-10 right-10 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform transform animate-bounce">
           {t("itemAdded")}
         </div>)}
+        
+        <div className="mb-4 flex justify-end">
+          <select 
+            value={language} 
+            onChange={(e) => setLanguage(e.target.value)}
+            className="p-2 border rounded"
+          >
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+          </select>
+        </div>
+
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-          {/* panel de personalizacion */}
+          {/* Customization panel */}
           <div className="lg:col-span-2">
             <div className="bg-white p-6 rounded-xl shadow-lg mb-6 lg:mb-0 md:flex-wrap-reverse">
               {Object.entries(cakeOptions).map(([category, categoryData]) => (
@@ -226,7 +261,7 @@ const CakeCustomizer = () => {
             </div>
           </div>
 
-          {/* Muestra de los ingredientes seleccionados */}
+          {/* Selected ingredients display */}
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-xl shadow-lg sticky top-8">
               <h3 className="font-semibold mb-4 text-lg md:text-xl">{t("yourSelect")}</h3>
