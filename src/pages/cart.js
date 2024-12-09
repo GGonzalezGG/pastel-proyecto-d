@@ -59,22 +59,29 @@ const CartPage = () => {
       </div>
 
       {/* Predefined Cakes */}
-      <section className="mb-8 text-black">
-        <h3 className="text-xl text-center font-semibold mb-4 text-white bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("predefined_cakes")}</h3>
+      <section className="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="bg-blue-600 text-white text-center py-4">
+        <h3 className="text-2xl font-bold">{t("predefined_cakes")}</h3>
+      </div>
         {predefinedCart.length ? (
-          <ul className="space-y-4">
+          <ul className="p-6 space-y-4">
             {predefinedCart.map((cake, index) => (
-              <li key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
+              <li key={index} className="bg-gray-100 p-4 rounded-lg border border-gray-200 shadow-sm flex items-center justify-between">
                 <div>
-                  <span className="font-medium text-lg">{t(cake.name)}</span>: {Array.isArray(cake.ingredients)
-                    ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + t(curr), "") 
-                    : "No ingredients available"}
-                  <div><span className="font-medium"></span> {t("shape")}: {t(cake.shape)}</div>
-                  <div><span className="font-medium"></span> {t("size")}: {t(cake.size)}</div>
+                  <div className="text-gray-800 font-bold text-xl mb-2">
+                    {t(cake.name)}
+                  </div>
+                  <div className= "text-gray-700 text-sm mb-2">
+                  <span className="font-medium">{t("ingredients")}:</span>{" "} {Array.isArray(cake.ingredients)
+                      ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + t(curr), "") 
+                      : "No ingredients available"}
+                    <div className="text-sm"><span className="font-medium"></span> {t("shape")}: {t(cake.shape)}</div>
+                    <div className="text-sm"><span className="font-medium"></span> {t("size")}: {t(cake.size)}</div>
+                  </div>
                 </div>
                 <button
                   onClick={() => handleRemoveItem("predefined", index)}
-                  className="text-white hover:bg-red-700 text-sm font-medium bg-red-600 rounded-xl p-2"
+                  className="text-white bg-red-600 hover:bg-red-700 font-medium py-2 px-4 rounded-lg"
                 >
                   {t("remove")}
                 </button>
@@ -82,26 +89,43 @@ const CartPage = () => {
             ))}
           </ul>
         ) : (
-          <p className="bg-white text-black p-2 rounded-xl text-center py-4">{t("no_predefined_cakes")}</p>
+          <p className="bg-white text-gray-500 p-4 text-center">{t("no_predefined_cakes")}</p>
         )}
       </section>
-
+      <hr className="border-t-2 border-dashed border-gray-300 my-6" />
       {/* Customized Cakes */}
-      <section className="text-black">
-        <h3 className="text-xl text-center font-semibold mb-4 text-white bg-gray-800 bg-opacity-75 rounded-xl p-2">{t("customized_cakes")}</h3>
+      <section className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="bg-pink-500 text-white text-center py-4">
+          <h3 className="text-2xl font-bold">{t("customized_cakes")}</h3>
+        </div>
+ 
         {customCart.length ? (
-          <ul className="space-y-4">
+          <ul className="p-6 space-y-4">
             {customCart.map((cake, index) => (
-              <li key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
-                <div className="space-y-1">
-                  <div><span className="font-medium"></span> {t("shape")}: {t(cake.shape)}</div>
-                  <div><span className="font-medium"></span> {t("size")}: {cake.size}</div>
-                  <div><span className="font-medium"></span> {t("toppings")}: {cake.toppings.join(", ")}</div>
-                  <div><span className="font-medium"></span> {t("fillings")}: {cake.fillings.join(", ")}</div>
+              <li key={index} className="bg-gray-100 p-4 rounded-lg border border-gray-200 shadow-sm flex items-center justify-between">
+                <div>
+                  <div className="text-gray-800 font-bold text-xl mb-2">
+                    {t("shape")}: {t(cake.shape)}
+                  </div>
+                  <div className="text-gray-800 font-bold text-lg mb-4">
+                    {t("size")}: {cake.size}
+                  </div>
+                  <div className="text-gray-700 text-sm mb-2">
+                    <span className="font-medium">{t("toppings")}:</span>{" "}
+                    {cake.toppings.length
+                      ? cake.toppings.join(", ")
+                      : t("no_toppings_available")}
+                  </div>
+                  <div className="text-gray-700 text-sm mb-4">
+                    <span className="font-medium">{t("fillings")}:</span>{" "}
+                    {cake.fillings.length
+                      ? cake.fillings.join(", ")
+                      : t("no_fillings_available")}
+                  </div>
                 </div>
                 <button
                   onClick={() => handleRemoveItem("custom", index)}
-                  className="text-white hover:bg-red-700 text-sm font-medium bg-red-600 rounded-xl p-2"
+                  className="mt-4 text-white bg-red-600 hover:bg-red-700 font-medium py-2 px-4 rounded-lg"
                 >
                   {t("remove")}
                 </button>
@@ -125,5 +149,6 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
 
 
