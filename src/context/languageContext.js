@@ -95,7 +95,8 @@ const translations = {
       invalidUser: "Usuario Inválido",
       pleaseLoginToContinue: "Por favor inicie sesión para continuar",
       pleaseLoginToAddToCart: "Por favor inicie sesión para añadir al carrito",
-      pleaseSelectShapeAndSize: "Por favor selecciona forma y tamaño"
+      pleaseSelectShapeAndSize: "Por favor selecciona forma y tamaño",
+      completeSelections: "Por favor asegúrese de agregar al menos una cobertura y relleno"
   },
   en: { 
       welcome: "Welcome", 
@@ -181,7 +182,8 @@ const translations = {
       no_predefined_cakes: "No predefined cakes",
       pleaseLoginToContinue: "Please Login to continue",
       pleaseLoginToAddToCart: "Please Login to add to Cart",
-      pleaseSelectShapeAndSize: "Please select shape and size"
+      pleaseSelectShapeAndSize: "Please select shape and size",
+      completeSelections: "Please make sure to add at least one topping and filling"
   },
   fr: { 
       welcome: "Bienvenue", 
@@ -267,7 +269,8 @@ const translations = {
       no_predefined_cakes: "Pas de gâteaux prédéfinis",
       pleaseLoginToContinue: "Veuillez vous connecter pour continuer",
       pleaseLoginToAddToCart: "Veuillez vous connecter pour ajouter au panier",
-      pleaseSelectShapeAndSize: "Veuillez sélectionner la forme et la taille"
+      pleaseSelectShapeAndSize: "Veuillez sélectionner la forme et la taille",
+      completeSelections: "Veuillez vous assurer d'ajouter au moins une garniture et une garniture."
   },
   de: { 
       welcome: "Willkommen", 
@@ -352,7 +355,8 @@ const translations = {
       no_predefined_cakes: "Keine vordefinierten Kuchen",
       pleaseLoginToContinue: "Bitte melden Sie sich an, um fortzufahren",
       pleaseLoginToAddToCart: "Bitte melden Sie sich an, um es in den Warenkorb zu legen",
-      pleaseSelectShapeAndSize: "Bitte wählen Sie Form und Größe aus"
+      pleaseSelectShapeAndSize: "Bitte wählen Sie Form und Größe aus",
+      completeSelections: "Bitte achten Sie darauf, mindestens einen Belag und eine Füllung hinzuzufügen"
   },
 };
 

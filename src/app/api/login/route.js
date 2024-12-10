@@ -14,7 +14,7 @@ export async function POST(req) {
         
         if (!user) {
             return NextResponse.json(
-                { message: 'Invalid user' },
+                { message: 'Usuario inválido' },
                 { status: 401 }
             );
         }
@@ -24,7 +24,7 @@ export async function POST(req) {
         
         if (!isMatch) {
             return NextResponse.json(
-                { message: 'Invalid credentials' },
+                { message: 'Credenciales inválidas' },
                 { status: 401 }
             );
         }
@@ -38,7 +38,7 @@ export async function POST(req) {
 
         return NextResponse.json(
             {
-                message: 'Login successful',
+                message: 'Inicio de Sesión exitoso',
                 username: user.username,
                 token
             },
@@ -47,7 +47,7 @@ export async function POST(req) {
     } catch (error) {
         console.error('Login error:', error);
         return NextResponse.json(
-            { message: 'Server error during login' },
+            { message: 'Error del servidor durante el inicio de sesión' },
             { status: 500 }
         );
     }

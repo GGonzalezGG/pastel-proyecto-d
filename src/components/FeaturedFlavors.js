@@ -21,10 +21,10 @@ const FeaturedFlavors = () => {
   }, [flavors.length]);
 
   return (
-    <div className="container_flavor">
-      <h2 className="text-2xl">{t("featuredFlavors")}:{" "}</h2>
+    <div className="container_flavor bg-gray-500 bg-opacity-25 rounded-xl my-6">
+      <h2 className="text-2xl">{t("featuredFlavors")}{" "}</h2>
       <h2 className={` ${animation}`}>
-        <span className="flavors-highlight text-xl" >{flavors[currentFlavor]}</span>
+        <span className="flavors-highlight text-xl py-2" >{flavors[currentFlavor]}</span>
       </h2>
     </div>
   );

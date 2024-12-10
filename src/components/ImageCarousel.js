@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 export default function ImageCarousel() {
     const images = [
-        '/3_Leches.png',
-        '/Mil_Hojas.jpg',
-        '/Selva_Negra.jpg'
+        '/cake_login.jpg',
+        '/cake_register.jpg',
+        '/cake_tienda.jpg'
     ];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [prevImageIndex, setPrevImageIndex] = useState(null);

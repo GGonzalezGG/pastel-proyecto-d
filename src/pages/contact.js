@@ -53,8 +53,8 @@ export default function Contact() {
             <div className="mb-8 bg-gray-800 bg-opacity-75">
                 <h2 className="text-2xl mb-2">{t("contactInfo")}</h2>
                 <p><strong>{t("phone")}:</strong> +56 9 1234 5678</p>
-                <p><strong>{t("email")}::</strong> contacto@tortasdelguille.cl</p>
-                <p><strong>{t("address")}:</strong> Av. Ejemplo 1234, Santiago, Chile</p>
+                <p><strong>{t("email")}:</strong> contacto@tortasdelguille.cl</p>
+                <p><strong>{t("address")}:</strong> Av. Jose Arrieta 1234, Santiago, Chile</p>
             </div>
 
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-lg text-black">
@@ -96,8 +96,8 @@ export default function Contact() {
                     {t("sendMessage")}
                 </button>
             </form>
-            <Link href="/">
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded text-sm md:text-base">{t("home")}</button>
+            <Link href="/" className='my-2'>
+                    <button className="bg-blue-500 text-white px-6 py-3 rounded-xl text-sm md:text-xl">{t("home")}</button>
             </Link>
         </div>
     );

@@ -72,7 +72,7 @@ const CartPage = () => {
                     {t(cake.name)}
                   </div>
                   <div className= "text-gray-700 text-sm mb-2">
-                  <span className="font-medium">{t("ingredients")}:</span>{" "} {Array.isArray(cake.ingredients)
+                  <span className="font-medium">{t("toppings")}:</span>{" "} {Array.isArray(cake.ingredients)
                       ? cake.ingredients.reduce((acc, curr, idx) => acc + (idx > 0 ? ", " : "") + t(curr), "") 
                       : "No ingredients available"}
                     <div className="text-sm"><span className="font-medium"></span> {t("shape")}: {t(cake.shape)}</div>

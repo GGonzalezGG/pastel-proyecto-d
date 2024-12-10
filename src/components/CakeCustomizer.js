@@ -13,6 +13,11 @@ const CakeCustomizer = () => {
   const username = user?.username; 
   const [showConfirmation, setShowConfirmation] = useState(false);
 
+  const isSelectionComplete = () => {
+    return selections.shape && selections.size && selections.toppings.length > 0 && selections.fillings.length > 0;
+  };
+  
+
   const handleAddToCart = () => {
     setShowConfirmation(true);
   
@@ -282,12 +287,19 @@ const CakeCustomizer = () => {
                   {t("home")}
                 </button>
                 </Link>
-              
-                <button className="w-full font-medium mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
-                  onClick={handleAddToCart} disabled={!selections.size || !selections.shape}>
-                    {t("AddToCart")}
-                </button>
-                
+              <button 
+                className="w-full font-medium mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300"
+                onClick={handleAddToCart} 
+                disabled={!isSelectionComplete()}
+              >
+                {t("AddToCart")}
+              </button>
+              </div>
+
+              <div className='p-4 text-center'>
+              {!isSelectionComplete() && (
+                  <p className="text-red-500 text-sm md:text-base">{t("completeSelections")}</p>
+                )}
               </div>
               
             </div>

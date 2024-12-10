@@ -122,8 +122,8 @@ const ChatWidget = () => {
       {isOpen && (
         <div className="w-80 h-[500px] bg-white border rounded-lg shadow-xl flex flex-col">
           {/* Header */}
-          <div className="bg-blue-500 text-white font-semibold p-3 flex justify-between items-center rounded-t-lg">
-            <h2>SkibidiCake - Pastelería Sigma Chamba</h2>
+          <div className="bg-blue-500 text-white font-semibold p-3 flex justify-between items-center text-center rounded-t-lg">
+            <h2>Asistencia en Línea - Tortas del Guille</h2>
             <button onClick={() => setIsOpen(false)}>
               <X size={20} />
             </button>
@@ -142,7 +142,7 @@ const ChatWidget = () => {
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-              placeholder="Escribe un skibidi-mensaje..."
+              placeholder="Escribe un mensaje..."
               className="flex-1 p-2 text-zinc-600 border rounded-l-lg"
               disabled={isLoading}
             />

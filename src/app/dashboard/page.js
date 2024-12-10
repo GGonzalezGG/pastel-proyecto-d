@@ -9,6 +9,7 @@ export default function Custom() {
   return (
     <LanguageProvider>
       <ProtectedRoute>
+        <title>Tortas Personalizadas</title>
         <div style={{ 
           backgroundImage: "url('/xd.jpg')", 
           backgroundSize: 'cover', 
