@@ -123,7 +123,7 @@ const ChatWidget = () => {
         <div className="w-80 h-[500px] bg-white border rounded-lg shadow-xl flex flex-col">
           {/* Header */}
           <div className="bg-blue-500 text-white font-semibold p-3 flex justify-between items-center text-center rounded-t-lg">
-            <h2>Asistencia en Línea - Tortas del Guille</h2>
+            <h2>SkibidiCake VA</h2>
             <button onClick={() => setIsOpen(false)}>
               <X size={20} />
             </button>

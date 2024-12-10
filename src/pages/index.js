@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <div className="min-h-screen flex flex-col bg-cover bg-center" style={{ backgroundImage: "url('/cakes.png')" }}>
             <Head>
-                <title>Tortas del Guille</title>
+                <title>Pasteleria Sigma Chamba</title>
             </Head>
             <Header />
             <div className="flex-grow flex flex-col items-center">
